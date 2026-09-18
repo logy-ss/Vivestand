@@ -1,0 +1,354 @@
+:root {
+    --navy: #0B1F3A;
+    --blue-1: #123E6B;
+    --blue-2: #1F6FB3;
+    --blue-3: #4AA8D8;
+    --blue-4: #8ED3F4;
+    --blue-5: #DFF4FF;
+    --pink: #E42264;
+    --pink-2: #F04B7A;
+    --pink-3: #F67DA0;
+    --pink-4: #FFC0D5;
+    --white: #F9FCFF;
+    --text: #102235;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(180deg, var(--blue-5) 0%, var(--white) 100%);
+    color: var(--text);
+}
+
+/* HEADER & NAVIGATION */
+header {
+    background: linear-gradient(90deg, var(--navy), var(--blue-1));
+    box-shadow: 0 6px 20px rgba(11, 31, 58, 0.15);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.6);
+}
+
+.brand-name {
+    color: var(--white);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+li a:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-actions a {
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 10px 18px;
+    transition: 0.3s ease;
+}
+
+.nav-actions .link {
+    background: var(--pink);
+    color: var(--white);
+    box-shadow: 0 8px 18px rgba(228, 34, 100, 0.35);
+}
+
+.nav-actions .login-btn {
+    background: rgba(255,255,255,0.14);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.nav-actions a:hover {
+    transform: translateY(-1px);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* INJURY DETAIL SECTION */
+.injury-detail-section {
+    padding: 60px 20px;
+}
+
+.injury-header {
+    text-align: center;
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(18, 62, 107, 0.12);
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 20px rgba(11, 31, 58, 0.08);
+}
+
+.injury-header h1 {
+    margin: 0 0 15px;
+    font-size: 2.5rem;
+    color: var(--navy);
+}
+
+.injury-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+/* INJURY CONTENT */
+.injury-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+/* RECOVERY PLAN */
+.recovery-plan {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(11, 31, 58, 0.08);
+}
+
+.recovery-plan h2 {
+    color: var(--navy);
+    font-size: 1.8rem;
+    margin: 0 0 30px;
+}
+
+.recovery-step {
+    background: linear-gradient(135deg, var(--blue-5), var(--white));
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--pink);
+    border-radius: 8px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+/* SYMPTOMS BOX */
+.symptoms-box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(11, 31, 58, 0.08);
+}
+
+.symptoms-box h3,
+.prevention-box h3 {
+    color: var(--navy);
+    font-size: 1.3rem;
+    margin: 0 0 20px;
+    border-bottom: 2px solid var(--pink);
+    padding-bottom: 10px;
+}
+
+.symptoms-box ul,
+.prevention-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.symptoms-box li,
+.prevention-box li {
+    padding: 10px 0;
+    color: var(--text);
+    border-bottom: 1px solid rgba(18, 62, 107, 0.1);
+    position: relative;
+    padding-left: 20px;
+}
+
+.symptoms-box li:before,
+.prevention-box li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+    font-weight: bold;
+}
+
+.symptoms-box li:last-child,
+.prevention-box li:last-child {
+    border-bottom: none;
+}
+
+/* PREVENTION BOX */
+.prevention-box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(11, 31, 58, 0.08);
+    margin-top: 30px;
+}
+
+/* ACTION BUTTONS */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.action-buttons a {
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-align: center;
+    transition: 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-back {
+    background: var(--blue-4);
+    color: var(--navy);
+    border: 2px solid var(--blue-3);
+}
+
+.btn-back:hover {
+    background: var(--blue-3);
+    transform: translateX(-5px);
+}
+
+.btn-consult {
+    background: linear-gradient(135deg, var(--pink), var(--pink-2));
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(228, 34, 100, 0.35);
+}
+
+.btn-consult:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(228, 34, 100, 0.4);
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(90deg, var(--navy), var(--blue-1));
+    color: var(--white);
+    padding: 60px 20px 30px;
+    margin-top: 80px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin: 0 0 15px;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: 0.3s ease;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+    color: var(--pink-4);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .injury-content {
+        grid-template-columns: 1fr;
+    }
+
+    .injury-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .action-buttons {
+        flex-direction: row;
+    }
+
+    .action-buttons a {
+        flex: 1;
+    }
+}

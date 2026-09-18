@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Color Palette</title>
+  <style>
+    :root {
+      --navy: #0B1F3A;
+      --blue-1: #123E6B;
+      --blue-2: #1F6FB3;
+      --blue-3: #4AA8D8;
+      --blue-4: #8ED3F4;
+      --blue-5: #DFF4FF;
+      --pink: #E42264;
+      --pink-2: #F04B7A;
+      --pink-3: #F67DA0;
+      --pink-4: #FFC0D5;
+      --white: #F9FCFF;
+      --text: #102235;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: var(--navy);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15, 46, 70, 0.08);
+      background: #fff;
+    }
+
+    .color-box {
+      height: 140px;
+    }
+
+    .info {
+      padding: 16px;
+    }
+
+    .name {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .code {
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #555;
+    }
+
+    .demo {
+      margin-top: 40px;
+      background: linear-gradient(135deg, var(--navy), var(--blue-2));
+      color: white;
+      padding: 30px;
+      border-radius: 18px;
+    }
+
+    .demo h2 {
+      margin-bottom: 14px;
+      font-size: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: var(--pink);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: var(--blue-4);
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SWIMEST Color Palette</h1>
+
+    <div class="grid">
+      <div class="card">
+        <div class="color-box" style="background: var(--navy);"></div>
+        <div class="info">
+          <div class="name">Deep Navy</div>
+          <div class="code">#0B1F3A</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--blue-1);"></div>
+        <div class="info">
+          <div class="name">Blue 1</div>
+          <div class="code">#123E6B</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--blue-2);"></div>
+        <div class="info">
+          <div class="name">Blue 2</div>
+          <div class="code">#1F6FB3</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--blue-3);"></div>
+        <div class="info">
+          <div class="name">Blue 3</div>
+          <div class="code">#4AA8D8</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--blue-4);"></div>
+        <div class="info">
+          <div class="name">Blue 4</div>
+          <div class="code">#8ED3F4</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--blue-5);"></div>
+        <div class="info">
+          <div class="name">Blue 5</div>
+          <div class="code">#DFF4FF</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--pink);"></div>
+        <div class="info">
+          <div class="name">Pink Accent</div>
+          <div class="code">#E42264</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--pink-2);"></div>
+        <div class="info">
+          <div class="name">Pink 2</div>
+          <div class="code">#F04B7A</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--pink-3);"></div>
+        <div class="info">
+          <div class="name">Pink 3</div>
+          <div class="code">#F67DA0</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--pink-4);"></div>
+        <div class="info">
+          <div class="name">Pink 4</div>
+          <div class="code">#FFC0D5</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--white); border: 1px solid #dfeaf5;"></div>
+        <div class="info">
+          <div class="name">White</div>
+          <div class="code">#F9FCFF</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="color-box" style="background: var(--text);"></div>
+        <div class="info">
+          <div class="name">Text</div>
+          <div class="code">#102235</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Demo Design</h2>
+      <p>Modern medical + sports brand look for recovery and treatment.</p>
+      <div class="buttons">
+        <button class="btn btn-primary">Book Now</button>
+        <button class="btn btn-secondary">Learn More</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

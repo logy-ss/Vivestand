@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivestand - Sports Recovery Platform</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body> 
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="brand">
+                <img src="../images/logo.png" alt="vivestand logo">
+                <span class="brand-name">vivestand</span>
+            </div>
+
+            <div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="../Doctors/doctors.html">Doctors</a></li>
+                    <li><a href="../Professional/professional.html">Professional</a></li>
+                     <li><a href="../Online_session/online.html">Online</a></li>
+                    <li><a href="../Recovery/recovery.html">Recovery</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <a class="link" href="../Signup/signup.html">Signup</a>
+                <a class="login-btn" href="../Login/login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero-section">
+        <div class="home-hero">
+            <div class="hero-box">
+                <h1>Recovery starts with the right support.</h1>
+                <p>
+                    A modern platform helping athletes find the right products, specialists,
+                    and recovery plans after sports injuries.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="primary" href="../Signup/signup.html">Get Started</a>
+                    <a class="secondary" href="../Login/login.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INJURY SELECTION -->
+    <section class="injury-section">
+        <div class="container">
+            <h2>Select Your Injury</h2>
+            <p class="section-subtitle">Choose your injury type to find the right recovery plan</p>
+            
+            <div class="injury-cards">
+                <div class="injury-card" onclick="goToInjury('shoulder')">
+                    <div class="card-icon">💪</div>
+                    <h3>Shoulder</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('elbow')">
+                    <div class="card-icon">🦾</div>
+                    <h3>Elbow Pain</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('wrist')">
+                    <div class="card-icon">✋</div>
+                    <h3>Wrist & Hand</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('collarbone')">
+                    <div class="card-icon">🏥</div>
+                    <h3>Collarbone</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('lower-back')">
+                    <div class="card-icon">🔙</div>
+                    <h3>Lower Back</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('abdominal')">
+                    <div class="card-icon">🤸</div>
+                    <h3>Abdominal Strains</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('rib')">
+                    <div class="card-icon">🫀</div>
+                    <h3>Rib Injuries</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('knee')">
+                    <div class="card-icon">🦵</div>
+                    <h3>Knee Injuries</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('ankle')">
+                    <div class="card-icon">👟</div>
+                    <h3>Ankle Sprains</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('stress-fracture')">
+                    <div class="card-icon">🦴</div>
+                    <h3>Stress Fractures</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('shin')">
+                    <div class="card-icon">🏃</div>
+                    <h3>Shin Splints</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('plantar')">
+                    <div class="card-icon">🦶</div>
+                    <h3>Plantar Fasciitis</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('hamstring')">
+                    <div class="card-icon">🏋️</div>
+                    <h3>Hamstring Strains</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('quadriceps')">
+                    <div class="card-icon">🚴</div>
+                    <h3>Quadriceps Strains</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('tendonitis')">
+                    <div class="card-icon">🔥</div>
+                    <h3>Tendonitis</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('concussion')">
+                    <div class="card-icon">🧠</div>
+                    <h3>Concussion</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('bruise')">
+                    <div class="card-icon">💜</div>
+                    <h3>Bruise & Contusion</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('contusion')">
+                    <div class="card-icon">⚡</div>
+                    <h3>Muscle Contusion</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('dislocation')">
+                    <div class="card-icon">🔗</div>
+                    <h3>Dislocation</h3>
+                </div>
+
+                <div class="injury-card" onclick="goToInjury('acl')">
+                    <div class="card-icon">🦿</div>
+                    <h3>ACL Injury</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Why Choose Vivestand?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Expert Doctors</h3>
+                    <p>Connect with certified sports medicine specialists</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Recovery Plans</h3>
+                    <p>Personalized recovery strategies tailored to your injury</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <h3>Professional Guidance</h3>
+                    <p>Support from sports professionals and trainers</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Proven Results</h3>
+                    <p>Track your progress and get back to sports</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <h2>How It Works</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Select Your Injury</h3>
+                    <p>Choose the type of sports injury you have</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Your Plan</h3>
+                    <p>Receive a personalized recovery plan instantly</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Connect with Experts</h3>
+                    <p>Talk to doctors and professionals online</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Recover & Return</h3>
+                    <p>Follow your plan and get back to your sport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Vivestand</h4>
+                    <p>Your partner in sports recovery</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                             <li><a href="../Recovery/recovery.html">Recovery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@vivestand.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vivestand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function goToInjury(injuryType) {
+            window.location.href = '../Injuries/injuries.html?injury=' + injuryType;
+        }
+    </script>
+
+</body>
+
+</html>

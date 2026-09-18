@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Consultation - Vivestand</title>
+    <link rel="stylesheet" href="online.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="brand">
+                <img src="../images/logo.png" alt="vivestand logo">
+                <span class="brand-name">vivestand</span>
+            </div>
+
+            <div>
+                <ul>
+                    <li><a href="../Home/home.html">Home</a></li>
+                    <li><a href="../Doctors/doctors.html">Doctors</a></li>
+                    <li><a href="../Professional/professional.html">Professional</a></li>
+                     <li><a href="../Online_session/online.html">Online</a></li>
+                    <li><a href="../Recovery/recovery.html">Recovery</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <a class="link" href="../Signup/signup.html">Signup</a>
+                <a class="login-btn" href="../Login/login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SESSION HEADER -->
+    <section class="session-header">
+        <div class="container">
+            <h1>Online Consultation</h1>
+            <p>Connect with our Egyptian sports medicine specialists</p>
+        </div>
+    </section>
+
+    <!-- SESSION SECTION -->
+    <section class="session-section">
+        <div class="container">
+
+            <!-- DOCTOR INFO -->
+            <div class="doctor-info">
+                <div class="doctor-info-left">
+                    <div class="doctor-info-icon">👨‍⚕️</div>
+                    <h3 id="doctor-name">Dr. Ahmed El-Shaer</h3>
+                    <p class="doctor-info-specialty" id="doctor-specialty">Shoulder Specialist</p>
+                    <p class="doctor-info-qual" id="doctor-qualification">MD, Sports Medicine</p>
+                </div>
+                <div class="doctor-info-right">
+                    <h4>About This Consultation</h4>
+                    <div class="info-item"><strong>First Session: FREE</strong><br>Fill a quick 3-question form + 10-minute consultation</div>
+                    <div class="info-item"><strong>Following Sessions: 300 EGP</strong><br>Full consultation and treatment planning</div>
+                    <div class="info-item"><strong>What's Included:</strong><br>Expert assessment, personalized advice, and recovery guidance</div>
+                </div>
+            </div>
+
+            <!-- CONSULTATION FORM -->
+            <div class="session-container">
+                
+                <!-- STEP INDICATOR -->
+                <div class="step-indicator">
+                    <div class="step active" id="step-1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Questions</div>
+                    </div>
+                    <div class="step" id="step-2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Session</div>
+                    </div>
+                    <div class="step" id="step-3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Pricing</div>
+                    </div>
+                </div>
+
+                <!-- FORM SECTION (STEP 1) -->
+                <div id="form-step" class="form-section">
+                    <div class="session-badge">FREE FIRST CONSULTATION</div>
+                    <h3>Your Questions</h3>
+                    <p style="color: #102235; margin-bottom: 20px;">Please answer these 3 quick questions so our doctor can prepare for your consultation.</p>
+                    
+                    <form id="consultation-form">
+                        <div class="form-group">
+                            <label for="q1">Question 1: What is your main concern or injury?</label>
+                            <input type="text" id="q1" placeholder="e.g., Shoulder pain, knee injury, etc." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="q2">Question 2: How long have you been experiencing this issue?</label>
+                            <input type="text" id="q2" placeholder="e.g., 2 weeks, 3 months, etc." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="q3">Question 3: What is your primary goal for this consultation?</label>
+                            <textarea id="q3" placeholder="e.g., Pain relief, recovery plan, return to sport, etc." required></textarea>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary" onclick="goToDoctor()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Start Free Session</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TIMER SECTION (STEP 2) -->
+                <div id="timer-step" class="timer-section" style="display: none;">
+                    <h3>Your Free Consultation</h3>
+                    <p style="color: #0B1F3A; font-size: 1rem; margin-bottom: 20px;">You have 10 minutes with our specialist</p>
+                    <div class="timer-display" id="timer">10:00</div>
+                    <p class="timer-label">Remaining time in this session</p>
+
+                    <div style="background: var(--white); padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <p style="color: #0B1F3A; margin: 0; line-height: 1.8;">
+                            <strong>Dr. Ahmed El-Shaer is reviewing your answers...</strong><br><br>
+                            Thank you for providing your information. Our doctor is now preparing a personalized consultation based on your responses. 
+                            During this 10-minute session, the doctor will provide initial assessment and guidance for your injury recovery.
+                        </p>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="endSession()">End Session</button>
+                </div>
+
+                <!-- PRICING SECTION (STEP 3) -->
+                <div id="pricing-step" style="display: none;">
+                    <h3 style="text-align: center; color: #0B1F3A; margin-bottom: 30px;">Continue Your Treatment</h3>
+                    
+                    <div class="pricing-section">
+                        <h4>Full Consultation Session</h4>
+                        <div class="price">300 EGP</div>
+                        <p class="price-description">Per consultation session</p>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #DFF4FF, #F9FCFF); padding: 25px; border-radius: 12px; border: 2px solid #4AA8D8; margin: 20px 0;">
+                        <h4 style="color: #0B1F3A; margin-top: 0;">What You Get:</h4>
+                        <ul style="color: #102235; line-height: 2; margin: 0; padding-left: 20px;">
+                            <li>Full 30-minute consultation with specialist</li>
+                            <li>Detailed treatment and recovery plan</li>
+                            <li>Medication and exercise recommendations</li>
+                            <li>Follow-up support via messaging</li>
+                            <li>Option to schedule next appointment</li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" onclick="goHome()">Back to Home</button>
+                        <button type="button" class="btn btn-primary" onclick="bookNextSession()">Book Next Session (300 EGP)</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Vivestand</h4>
+                    <p>Your partner in sports recovery</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../Home/home.html">Home</a></li>
+                        <li><a href="../Doctors/doctors.html">Doctors</a></li>
+                         </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@vivestand.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vivestand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let timerInterval = null;
+        let timeRemaining = 600; // 10 minutes in seconds
+
+        // Doctors database
+        const doctorsDatabase = {
+            'ahmed-el-shaer': {
+                name: 'Dr. Ahmed El-Shaer',
+                specialty: 'Shoulder & Rotator Cuff Specialist',
+                qualification: 'MD, Sports Medicine | Cairo Medical University | 16+ years'
+            },
+            'karim-nassar': {
+                name: 'Dr. Karim Nassar',
+                specialty: 'Shoulder Dislocation Specialist',
+                qualification: 'MD, Orthopedic Surgery | Alexandria University | 18+ years'
+            },
+            'hassan-moussa': {
+                name: 'Dr. Hassan Moussa',
+                specialty: 'Shoulder Pain Management',
+                qualification: 'MD, Sports Medicine | Ain Shams University | 14+ years'
+            },
+            'osama-gamal': {
+                name: 'Dr. Osama Gamal',
+                specialty: 'ACL Injury Specialist',
+                qualification: 'MD, Orthopedic Surgery | Cairo Medical University | 18+ years'
+            },
+            'abdelrahman-el-saed': {
+                name: 'Dr. Abdelrahman El Saed',
+                specialty: 'Advanced Physical Therapy',
+                qualification: 'DPT, Certified Specialist | Cairo University | 15+ years'
+            }
+        };
+
+        // Initialize page
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const doctorId = urlParams.get('doctor');
+            
+            if (doctorId && doctorsDatabase[doctorId]) {
+                const doctor = doctorsDatabase[doctorId];
+                document.getElementById('doctor-name').textContent = doctor.name;
+                document.getElementById('doctor-specialty').textContent = doctor.specialty;
+                document.getElementById('doctor-qualification').textContent = doctor.qualification;
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('consultation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Save answers
+            const answers = {
+                q1: document.getElementById('q1').value,
+                q2: document.getElementById('q2').value,
+                q3: document.getElementById('q3').value
+            };
+            localStorage.setItem('consultationAnswers', JSON.stringify(answers));
+
+            // Move to next step
+            document.getElementById('form-step').style.display = 'none';
+            document.getElementById('timer-step').style.display = 'block';
+
+            // Update step indicator
+            document.getElementById('step-1').classList.remove('active');
+            document.getElementById('step-2').classList.add('active');
+
+            // Start timer
+            startTimer();
+        });
+
+        // Timer function
+        function startTimer() {
+            timeRemaining = 600; // 10 minutes
+            updateTimerDisplay();
+
+            timerInterval = setInterval(function() {
+                timeRemaining--;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    endSession();
+                } else {
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer').textContent = 
+                (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+        }
+
+        function endSession() {
+            if (timerInterval) clearInterval(timerInterval);
+
+            document.getElementById('timer-step').style.display = 'none';
+            document.getElementById('pricing-step').style.display = 'block';
+
+            document.getElementById('step-2').classList.remove('active');
+            document.getElementById('step-3').classList.add('active');
+        }
+
+        function bookNextSession() {
+            alert('Thank you! Next session (300 EGP) booking will be available soon. Redirecting to home...');
+            goHome();
+        }
+
+        function goHome() {
+            window.location.href = '../Home/home.html';
+        }
+
+        function goToDoctor() {
+            window.location.href = '../Doctors/doctors.html';
+        }
+    </script>
+
+</body>
+</html>
