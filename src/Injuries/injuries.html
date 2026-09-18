@@ -67,6 +67,7 @@
                 <div class="action-buttons">
                     <a href="../Home/home.html" class="btn-back">← Back to Home</a>
                     <a href="../Online_session/online.html" class="btn-consult">Consult a Doctor</a>
+                    <a id="view-recovery-btn" href="#" class="btn-recovery">View Recovery Plan</a>
                 </div>
             </div>
         </div>
@@ -619,6 +620,11 @@
                 preventionHTML += `<li>${tips}</li>`;
             });
             document.getElementById('prevention-list').innerHTML = preventionHTML;
+            // Set recovery button to open recovery page focused on this injury
+            const recoveryBtn = document.getElementById('view-recovery-btn');
+            if (recoveryBtn) {
+                recoveryBtn.href = `../Recovery/recovery.html?injury=${encodeURIComponent(injuryType)}`;
+            }
         } else {
             document.getElementById('injury-title').textContent = "Injury Not Found";
             document.getElementById('injury-description').textContent = "Please select an injury from the home page.";
