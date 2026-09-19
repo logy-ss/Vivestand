@@ -54,6 +54,58 @@ body {
     margin: 0;
 }
 
+/* SPECIALTY FILTER SECTION */
+.specialty-filter {
+    background: linear-gradient(180deg, var(--white) 0%, var(--blue-5) 100%);
+    padding: 60px 20px;
+}
+
+.filter-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+}
+
+.filter-card {
+    background: var(--white);
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 2px solid var(--blue-5);
+    box-shadow: 0 2px 8px rgba(11, 31, 58, 0.05);
+}
+
+.filter-card:hover {
+    border-color: var(--pink);
+    box-shadow: 0 6px 16px rgba(228, 34, 100, 0.1);
+    transform: translateY(-4px);
+}
+
+.filter-card.active {
+    background: linear-gradient(135deg, var(--pink), var(--pink-2));
+    color: var(--white);
+    border-color: var(--pink);
+    box-shadow: 0 8px 20px rgba(228, 34, 100, 0.25);
+}
+
+.filter-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.filter-card h3 {
+    color: var(--navy);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.filter-card.active h3 {
+    color: var(--white);
+}
+
 /* DOCTORS SECTION */
 .doctors-section {
     padding: 80px 20px;
@@ -144,6 +196,10 @@ body {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+    .filter-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .doctors-grid {
         grid-template-columns: 1fr;
     }

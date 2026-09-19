@@ -45,12 +45,54 @@
         </div>
     </section>
 
+    <!-- SPECIALTY FILTER CARDS -->
+    <section class="specialty-filter">
+        <div class="container">
+            <div class="filter-cards-grid">
+                <div class="filter-card active" data-specialty="all">
+                    <div class="filter-icon">👨‍⚕️</div>
+                    <h3>All Doctors</h3>
+                </div>
+
+                <div class="filter-card" data-specialty="shoulder">
+                    <div class="filter-icon">💪</div>
+                    <h3>Shoulder</h3>
+                </div>
+
+                <div class="filter-card" data-specialty="elbow">
+                    <div class="filter-icon">🦾</div>
+                    <h3>Elbow</h3>
+                </div>
+
+                <div class="filter-card" data-specialty="knee">
+                    <div class="filter-icon">🦵</div>
+                    <h3>Knee</h3>
+                </div>
+
+                <div class="filter-card" data-specialty="back">
+                    <div class="filter-icon">🔙</div>
+                    <h3>Back & Spine</h3>
+                </div>
+
+                <div class="filter-card" data-specialty="general">
+                    <div class="filter-icon">⚕️</div>
+                    <h3>General Sports</h3>
+                </div>
+
+                <div class="filter-card" data-specialty="physio">
+                    <div class="filter-icon">🏥</div>
+                    <h3>Physical Therapy</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- DOCTORS BY SPECIALTY -->
     <section class="doctors-section">
         <div class="container">
             
             <!-- SHOULDER SPECIALISTS -->
-            <div class="specialty-group">
+            <div class="specialty-group" data-specialty="shoulder">
                 <h2>💪 Egyptian Shoulder Specialists</h2>
                 <div class="doctors-grid">
                     <div class="doctor-card">
@@ -136,7 +178,7 @@
             </div>
 
             <!-- ELBOW SPECIALISTS -->
-            <div class="specialty-group">
+            <div class="specialty-group" data-specialty="elbow">
                 <h2>🦾 Egyptian Elbow Specialists</h2>
                 <div class="doctors-grid">
                     <div class="doctor-card">
@@ -222,7 +264,7 @@
             </div>
 
             <!-- KNEE SPECIALISTS -->
-            <div class="specialty-group">
+            <div class="specialty-group" data-specialty="knee">
                 <h2>🦵 Egyptian Knee Specialists</h2>
                 <div class="doctors-grid">
                     <div class="doctor-card">
@@ -308,7 +350,7 @@
             </div>
 
             <!-- BACK SPECIALISTS -->
-            <div class="specialty-group">
+            <div class="specialty-group" data-specialty="back">
                 <h2>🔙 Egyptian Back & Spine Specialists</h2>
                 <div class="doctors-grid">
                     <div class="doctor-card">
@@ -394,7 +436,7 @@
             </div>
 
             <!-- GENERAL SPORTS MEDICINE -->
-            <div class="specialty-group">
+            <div class="specialty-group" data-specialty="general">
                 <h2>⚕️ Egyptian General Sports Medicine Doctors</h2>
                 <div class="doctors-grid">
                     <div class="doctor-card">
@@ -480,7 +522,7 @@
             </div>
 
             <!-- PHYSICAL THERAPY SPECIALISTS -->
-            <div class="specialty-group">
+            <div class="specialty-group" data-specialty="physio">
                 <h2>🏥 Egyptian Physical Therapy Specialists</h2>
                 <div class="doctors-grid">
                     <div class="doctor-card">
@@ -605,6 +647,35 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Handle specialty filter
+        const filterCards = document.querySelectorAll('.filter-card');
+        const specialtyGroups = document.querySelectorAll('.specialty-group');
+
+        filterCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const selectedSpecialty = this.getAttribute('data-specialty');
+
+                // Update active filter card
+                filterCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show/hide specialty groups
+                specialtyGroups.forEach(group => {
+                    const groupSpecialty = group.getAttribute('data-specialty');
+                    if (selectedSpecialty === 'all' || selectedSpecialty === groupSpecialty) {
+                        group.style.display = 'block';
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+
+                // Smooth scroll to doctors section
+                document.querySelector('.doctors-section').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 
 </body>
 </html>
