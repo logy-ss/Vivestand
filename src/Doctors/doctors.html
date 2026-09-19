@@ -618,6 +618,26 @@
         </div>
     </section>
 
+    <!-- CHAT BOT -->
+    <button class="chat-button" id="chatBtn">💬</button>
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <h3>Chat with Doctor</h3>
+            <p>Ask us anything about your recovery</p>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-message message-bot">
+                <div class="message-content">
+                    Hello! 👋 I'm here to help. What would you like to know about your recovery or our doctors?
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+            <button class="chat-send" id="chatSend">Send</button>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="container">
@@ -674,6 +694,58 @@
                 // Smooth scroll to doctors section
                 document.querySelector('.doctors-section').scrollIntoView({ behavior: 'smooth' });
             });
+        });
+
+        // Chat Bot Functionality
+        const chatBtn = document.getElementById('chatBtn');
+        const chatContainer = document.getElementById('chatContainer');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+        const chatMessages = document.getElementById('chatMessages');
+
+        // Toggle chat
+        chatBtn.addEventListener('click', function() {
+            chatContainer.classList.toggle('active');
+        });
+
+        // Send message
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message === '') return;
+
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message message-user';
+            userMsg.innerHTML = `<div class="message-content">${message}</div>`;
+            chatMessages.appendChild(userMsg);
+
+            // Clear input
+            chatInput.value = '';
+
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Bot response (simulated)
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-message message-bot';
+                const responses = [
+                    "That's a great question! Our specialists can help you with that. Would you like to book a consultation?",
+                    "We have expert doctors in various specialties. Which injury would you like help with?",
+                    "Recovery takes time and the right guidance. Let me connect you with the right specialist!",
+                    "You can browse our doctors by specialty to find the perfect match for your needs.",
+                    "Feel free to select a doctor and book a consultation. We're here to help! 🏥"
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                botMsg.innerHTML = `<div class="message-content">${randomResponse}</div>`;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+        }
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
         });
     </script>
 
