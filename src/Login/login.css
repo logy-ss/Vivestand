@@ -23,7 +23,11 @@ body {
     display: grid;
     place-items: center;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, var(--blue-5), var(--white));
+    background: linear-gradient(135deg, var(--blue-5), var(--white)), url('../../images/background-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text);
 }
 

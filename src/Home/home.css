@@ -20,7 +20,11 @@
 body {
     margin: 0;
     font-family: 'Playfair Display', serif;
-    background: linear-gradient(180deg, var(--blue-5) 0%, var(--white) 100%);
+    background: linear-gradient(180deg, rgba(223, 244, 255, 0.78), rgba(249, 252, 255, 0.9)), url('../../images/background-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text);
 }
 
@@ -29,9 +33,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px;
+    padding: 36px 20px 64px;
+    margin: 0;
     background: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
-                linear-gradient(135deg, var(--blue-5), var(--white));
+                linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9));
+    background-image: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
+                      linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9)),
+                      url('../../images/background-image.png');
+    background-size: cover, cover, cover;
+    background-position: center, center, center;
+    background-repeat: no-repeat;
 }
 
 .hero-box {
@@ -93,6 +104,8 @@ body {
 /* HERO SECTION */
 .hero-section {
     min-height: calc(100vh - 82px);
+    margin: 0;
+    padding: 0;
 }
 
 .home-hero {
@@ -100,9 +113,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px;
+    padding: 36px 20px 64px;
     background: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
-                linear-gradient(135deg, var(--blue-5), var(--white));
+                linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9));
+    background-image: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
+                      linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9)),
+                      url('../../images/background-image.png');
+    background-size: cover, cover, cover;
+    background-position: center, center, center;
+    background-repeat: no-repeat;
 }
 
 /* INJURY SELECTION SECTION */
@@ -262,57 +281,3 @@ body {
     line-height: 1.6;
 }
 
-/* FOOTER */
-footer {
-    background: linear-gradient(90deg, var(--navy), var(--blue-1));
-    color: var(--white);
-    padding: 60px 20px 30px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-section h4 {
-    color: var(--white);
-    font-size: 1.1rem;
-    margin: 0 0 15px;
-}
-
-.footer-section p {
-    margin: 8px 0;
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.footer-section a {
-    color: var(--white);
-    text-decoration: none;
-    opacity: 0.9;
-    transition: 0.3s ease;
-}
-
-.footer-section a:hover {
-    opacity: 1;
-    color: var(--pink-4);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
