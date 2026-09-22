@@ -3,10 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sports Equipment Marketplace - Vivestand</title>
+    <link rel="stylesheet" href="../Components/header.css">
+    <link rel="stylesheet" href="../Components/footer.css">
     <link rel="stylesheet" href="equepment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <div class="brand">
+                <img src="../../images/logo.png" alt="Vivestand logo">
+                <span class="brand-name">vivestand</span>
+            </div>
+
+            <div>
+                <ul>
+                    <li><a href="../Home/home.html">Home</a></li>
+                    <li><a href="../Doctors/doctors.html">Doctors</a></li>
+                    <li><a href="../Professional/pave_your_well.html">Pave Your Well</a></li>
+                    <li><a href="../Online_session/online.html">Online</a></li>
+                    <li><a href="../Recovery/recovery.html">Recovery</a></li>
+                    <li><a class="active-link" href="equepment.html" aria-current="page">Equipment</a></li>
+                    <li><a href="../contact_us/contact_us.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <a class="link" href="../Signup/signup.html">Signup</a>
+                <a class="login-btn" href="../Login/login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="marketplace-hero">
+            <div class="hero-copy">
+                <p class="eyebrow">THE ATHLETE-TO-ATHLETE MARKETPLACE</p>
+                <h1>Find equipment that keeps you in the game.</h1>
+                <p class="hero-text">Discover original sports equipment from trusted merchants and athletes who are ready to pass on gear they no longer use.</p>
+                <a class="hero-button" href="#sports">Browse by sport</a>
+            </div>
+            <div class="hero-note" aria-label="Marketplace promise">
+                <span class="note-number">01</span>
+                <strong>Original gear, real stories.</strong>
+                <p>Every listing is shown with its condition and seller type so you can shop with confidence.</p>
+            </div>
+        </section>
+
+        <section class="sports-section" id="sports">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CHOOSE YOUR SPORT</p>
+                    <h2>Shop equipment by sport</h2>
+                </div>
+                <p>Pick a sport to see the gear currently available from our community. Prices are shown in Egyptian pounds.</p>
+            </div>
+            <div class="sport-grid" id="sport-grid" aria-label="Sports categories"></div>
+        </section>
+
+        <section class="products-section" id="products" aria-live="polite">
+            <div class="section-heading products-heading">
+                <div>
+                    <p class="eyebrow">COMMUNITY LISTINGS</p>
+                    <h2 id="products-title">Swimming equipment</h2>
+                </div>
+                <div class="products-heading-actions">
+                    <p id="products-count">Showing available listings</p>
+                    <a class="back-to-sports" id="back-to-sports" href="equepment.html#sports">Back to all sports</a>
+                </div>
+            </div>
+            <div class="product-grid" id="product-grid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Vivestand</h4>
+                    <p>Your partner in sports recovery and performance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../Home/home.html">Home</a></li>
+                        <li><a href="../Recovery/recovery.html">Recovery</a></li>
+                        <li><a href="equepment.html">Equipment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@vivestand.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vivestand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const sports = [
+            { id: "swimming", name: "Swimming", mark: "SW", description: "Pool and open-water essentials" },
+            { id: "football", name: "Football", mark: "FB", description: "Match-ready boots and protection" },
+            { id: "handball", name: "Handball", mark: "HB", description: "Grip, support and training gear" },
+            { id: "volleyball", name: "Volleyball", mark: "VB", description: "Court shoes and knee support" },
+            { id: "fitness", name: "Fitness / Gym", mark: "GY", description: "Strength and conditioning tools" },
+            { id: "tennis", name: "Tennis", mark: "TN", description: "Rackets, bags and court gear" },
+            { id: "karate", name: "Karate", mark: "KT", description: "Training uniforms and protection" },
+            { id: "mma", name: "MMA", mark: "MA", description: "Combat training essentials" },
+            { id: "kickboxing", name: "Kickboxing", mark: "KB", description: "Striking and conditioning gear" },
+            { id: "running", name: "Running", mark: "RN", description: "Run-ready shoes and accessories" },
+            { id: "basketball", name: "Basketball", mark: "BB", description: "Court shoes and training gear" },
+            { id: "cycling", name: "Cycling", mark: "CY", description: "Ride safer and farther" },
+            { id: "gymnastics", name: "Gymnastics", mark: "GM", description: "Flexible training essentials" },
+            { id: "ballet", name: "Ballet", mark: "BL", description: "Studio wear and practice gear" }
+        ];
+
+        const productsBySport = {
+            swimming: [
+                ["Arena Carbon Air2 Goggles", "Training goggles", "Merchant", "Like new", "$45"],
+                ["Speedo Fastskin Suit", "Competition suit", "Retired athlete", "Excellent", "$85"],
+                ["FINIS Swim Paddles", "Technique equipment", "Merchant", "New", "$24"],
+                ["TYR Alliance Backpack", "Swim bag", "Retired athlete", "Excellent", "$38"],
+                ["Aqua Sphere Ear Plugs", "Swim accessories", "Merchant", "New", "$12"],
+                ["Zoggs Pull Buoy", "Training float", "Retired athlete", "Excellent", "$15"],
+                ["Speedo Kickboard", "Training float", "Merchant", "New", "$21"]
+            ],
+            football: [
+                ["Nike Mercurial Boots", "Football boots", "Retired athlete", "Excellent", "$70"],
+                ["Adidas Predator Gloves", "Goalkeeper gloves", "Merchant", "New", "$42"],
+                ["G-Form Pro-S Vento", "Shin protection", "Merchant", "Like new", "$38"],
+                ["Select Team Match Ball", "Match ball", "Retired athlete", "Excellent", "$30"],
+                ["Nike Park Training Bibs", "Training wear", "Merchant", "New", "$26"],
+                ["Puma Future Boots", "Football boots", "Merchant", "Like new", "$62"],
+                ["Uhlsport Goalkeeper Pants", "Goalkeeper wear", "Retired athlete", "Excellent", "$35"]
+            ],
+            handball: [
+                ["Select Ultimate Handball", "Match ball", "Merchant", "New", "$48"],
+                ["Kempa Attack Three Shoes", "Court shoes", "Retired athlete", "Excellent", "$64"],
+                ["McDavid Arm Sleeve", "Arm support", "Merchant", "Like new", "$19"],
+                ["Hummel Authentic Jersey", "Team jersey", "Retired athlete", "Excellent", "$32"],
+                ["Erima Handball Knee Pads", "Knee protection", "Merchant", "New", "$25"],
+                ["Kempa Attack Contender Ball", "Training ball", "Merchant", "Like new", "$28"],
+                ["Select Handball Resin", "Grip accessory", "Retired athlete", "Excellent", "$17"]
+            ],
+            volleyball: [
+                ["Mikasa V200W Volleyball", "Match ball", "Merchant", "New", "$72"],
+                ["Mizuno Wave Lightning", "Court shoes", "Retired athlete", "Excellent", "$58"],
+                ["Asics Gel Knee Pads", "Knee protection", "Merchant", "New", "$28"],
+                ["Molten V5M4500 Volleyball", "Training ball", "Retired athlete", "Like new", "$36"],
+                ["Nike Team Volleyball Bag", "Equipment bag", "Merchant", "New", "$40"],
+                ["Mizuno Volleyball Socks", "Court socks", "Retired athlete", "Excellent", "$16"],
+                ["Tachikara Soft Practice Ball", "Training ball", "Merchant", "New", "$25"]
+            ],
+            fitness: [
+                ["Rogue Resistance Band Set", "Resistance training", "Merchant", "New", "$35"],
+                ["Adjustable Kettlebell", "Strength equipment", "Retired athlete", "Like new", "$90"],
+                ["Manduka Pro Mat", "Exercise mat", "Merchant", "Excellent", "$62"],
+                ["TRX Suspension Trainer", "Bodyweight training", "Retired athlete", "Excellent", "$75"],
+                ["PowerBlock Sport Weights", "Adjustable weights", "Merchant", "Like new", "$180"],
+                ["Foam Roller Pro", "Recovery equipment", "Retired athlete", "Excellent", "$28"],
+                ["Olympic Barbell Set", "Strength equipment", "Merchant", "Like new", "$240"]
+            ],
+            tennis: [
+                ["Wilson Pro Staff 97", "Tennis racket", "Retired athlete", "Excellent", "$120"],
+                ["Babolat Pure Drive Bag", "Racket bag", "Merchant", "New", "$55"],
+                ["Asics Gel Resolution", "Court shoes", "Merchant", "Like new", "$68"],
+                ["Luxilon ALU Power Strings", "Racket strings", "Merchant", "New", "$18"],
+                ["Tourna Grip XL Pack", "Racket grips", "Retired athlete", "Like new", "$14"],
+                ["Head Radical Tennis Balls", "Tennis balls", "Merchant", "New", "$12"],
+                ["Yonex Pro Racket Cover", "Racket cover", "Retired athlete", "Excellent", "$24"]
+            ],
+            karate: [
+                ["Tokaido Kata Gi", "Karate uniform", "Retired athlete", "Excellent", "$75"],
+                ["Arawaza Chest Guard", "Protective gear", "Merchant", "New", "$34"],
+                ["Century Focus Mitts", "Training pads", "Merchant", "Like new", "$29"],
+                ["Hayashi Karate Belt", "Martial arts belt", "Retired athlete", "Excellent", "$20"],
+                ["Adidas Karate Foot Guards", "Foot protection", "Merchant", "New", "$31"],
+                ["Shureido Kumite Gloves", "Hand protection", "Retired athlete", "Excellent", "$45"],
+                ["Hayashi Karate Head Guard", "Head protection", "Merchant", "New", "$52"]
+            ],
+            mma: [
+                ["Fairtex BGV1 Gloves", "MMA gloves", "Merchant", "New", "$84"],
+                ["Hayabusa Rash Guard", "Training wear", "Retired athlete", "Excellent", "$42"],
+                ["Venum Shin Guards", "Shin protection", "Merchant", "Like new", "$58"],
+                ["Century Bob Freestanding Bag", "Training dummy", "Merchant", "Excellent", "$210"],
+                ["RDX Hand Wraps", "Hand protection", "Retired athlete", "Like new", "$16"],
+                ["Venum Challenger Mouthguard", "Mouth protection", "Merchant", "New", "$22"],
+                ["Tatami No-Gi Fight Shorts", "Training wear", "Retired athlete", "Excellent", "$32"]
+            ],
+            kickboxing: [
+                ["Twins Special BGVL-3", "Training gloves", "Retired athlete", "Excellent", "$78"],
+                ["Fairtex Heavy Bag", "Punching bag", "Merchant", "New", "$145"],
+                ["Top King Ankle Supports", "Ankle support", "Merchant", "Like new", "$22"],
+                ["Yokkao Shin Guards", "Shin protection", "Retired athlete", "Excellent", "$65"],
+                ["Everlast Speed Bag", "Speed bag", "Merchant", "New", "$55"],
+                ["Leone 1947 Head Guard", "Head protection", "Retired athlete", "Excellent", "$60"],
+                ["Rival Boxing Hand Wraps", "Hand protection", "Merchant", "New", "$18"]
+            ],
+            running: [
+                ["Garmin Forerunner 255", "Running watch", "Retired athlete", "Excellent", "$160"],
+                ["Saucony Endorphin Speed", "Running shoes", "Merchant", "New", "$110"],
+                ["Nathan Hydration Vest", "Hydration gear", "Merchant", "Like new", "$48"],
+                ["Balega Performance Socks", "Running socks", "Merchant", "New", "$16"],
+                ["FlipBelt Running Belt", "Running accessory", "Retired athlete", "Excellent", "$22"],
+                ["Hoka Clifton Running Shoes", "Running shoes", "Merchant", "Like new", "$105"],
+                ["Garmin HRM-Dual Strap", "Heart-rate monitor", "Retired athlete", "Excellent", "$45"]
+            ],
+            basketball: [
+                ["Spalding TF-1000", "Game basketball", "Merchant", "New", "$55"],
+                ["Nike GT Cut 3", "Basketball shoes", "Retired athlete", "Excellent", "$95"],
+                ["McDavid Hex Knee Pads", "Knee protection", "Merchant", "Like new", "$32"],
+                ["SKLZ Dribble Goggles", "Ball handling trainer", "Merchant", "New", "$18"],
+                ["Wilson Evolution Indoor Ball", "Training basketball", "Retired athlete", "Excellent", "$42"],
+                ["Spalding Dribble Stick", "Ball handling trainer", "Merchant", "New", "$26"],
+                ["Jordan Elite Crew Socks", "Basketball socks", "Retired athlete", "Like new", "$15"]
+            ],
+            cycling: [
+                ["Giro Register Helmet", "Cycling helmet", "Merchant", "New", "$65"],
+                ["Shimano SPD Pedals", "Bike components", "Retired athlete", "Excellent", "$50"],
+                ["Castelli Cycling Jersey", "Cycling wear", "Merchant", "Like new", "$44"],
+                ["Lezyne Pocket Drive Pump", "Bike pump", "Merchant", "New", "$30"],
+                ["Garmin Edge 530", "Cycling computer", "Retired athlete", "Excellent", "$135"],
+                ["Kryptonite U-Lock", "Bike security", "Merchant", "New", "$42"],
+                ["Pearl Izumi Cycling Gloves", "Cycling gloves", "Retired athlete", "Like new", "$20"]
+            ],
+            gymnastics: [
+                ["Spieth Training Grips", "Hand grips", "Retired athlete", "Excellent", "$36"],
+                ["Tumbl Trak Panel Mat", "Training mat", "Merchant", "Like new", "$140"],
+                ["GK Elite Leotard", "Competition wear", "Merchant", "New", "$58"],
+                ["Aai Vaulting Board", "Training equipment", "Merchant", "Excellent", "$220"],
+                ["Omnigym Wristbands", "Gymnastics accessory", "Retired athlete", "Like new", "$18"],
+                ["Spieth Balance Beam Mat", "Safety mat", "Merchant", "Excellent", "$165"],
+                ["Tumbl Trak Handstand Blocks", "Training blocks", "Retired athlete", "Like new", "$32"]
+            ],
+            ballet: [
+                ["Bloch Synthesis Pointe Shoes", "Pointe shoes", "Retired athlete", "Like new", "$42"],
+                ["Capezio Studio Leotard", "Dancewear", "Merchant", "New", "$38"],
+                ["So Danca Ballet Bag", "Dance bag", "Merchant", "Excellent", "$30"],
+                ["Gaynor Minden Tights", "Dancewear", "Retired athlete", "Excellent", "$20"],
+                ["Harlequin Dance Floor Roll", "Studio equipment", "Merchant", "Like new", "$115"],
+                ["Bloch Warm-Up Booties", "Dancewear", "Merchant", "New", "$34"],
+                ["Sansha Canvas Ballet Shoes", "Ballet shoes", "Retired athlete", "Excellent", "$26"]
+            ]
+        };
+
+        const extraProductsBySport = {
+            swimming: [
+                ["Finis Tempo Trainer", "Swim timer", "Merchant", "New", "$32"],
+                ["Speedo Pull Buoy", "Training float", "Retired athlete", "Excellent", "$18"],
+                ["TYR Silicone Cap", "Swim cap", "Merchant", "New", "$14"],
+                ["Arena Swim Snorkel", "Technique equipment", "Retired athlete", "Like new", "$28"],
+                ["Speedo Biofuse Fins", "Training fins", "Merchant", "New", "$34"],
+                ["Zoggs Mesh Equipment Bag", "Swim bag", "Retired athlete", "Excellent", "$22"],
+                ["Aqua Sphere Kayenne Mask", "Open-water gear", "Merchant", "Like new", "$48"],
+                ["FINIS Agility Paddles", "Technique equipment", "Merchant", "New", "$26"],
+                ["TYR Training Jammers", "Training wear", "Retired athlete", "Excellent", "$30"],
+                ["Speedo Pool Sandals", "Pool footwear", "Merchant", "New", "$16"],
+                ["Arena Nose Clip Set", "Swim accessories", "Retired athlete", "Like new", "$10"]
+            ],
+            football: [
+                ["Adidas Copa Pure Boots", "Football boots", "Merchant", "New", "$78"],
+                ["Nike Academy Ball", "Training ball", "Retired athlete", "Excellent", "$28"],
+                ["Puma Future Shin Guards", "Shin protection", "Merchant", "Like new", "$24"],
+                ["Uhlsport Starter Gloves", "Goalkeeper gloves", "Retired athlete", "Excellent", "$36"],
+                ["Nike Dri-FIT Shorts", "Training wear", "Merchant", "New", "$24"],
+                ["Adidas Tiro Track Jacket", "Training wear", "Retired athlete", "Like new", "$45"],
+                ["Select Referee Whistle", "Match accessory", "Merchant", "New", "$12"],
+                ["Puma Future Z Socks", "Football socks", "Retired athlete", "Excellent", "$15"],
+                ["Nike Club Ball Pump", "Ball accessory", "Merchant", "New", "$14"],
+                ["G-Form Ankle Sleeves", "Ankle support", "Retired athlete", "Like new", "$30"],
+                ["Adidas Team Boot Bag", "Equipment bag", "Merchant", "Excellent", "$20"]
+            ],
+            handball: [
+                ["Hummel Spirit Handball", "Training ball", "Merchant", "New", "$35"],
+                ["Kempa Wing Lite Shoes", "Court shoes", "Retired athlete", "Excellent", "$58"],
+                ["Select Protective Shorts", "Protective wear", "Merchant", "Like new", "$30"],
+                ["Hummel Core Jersey", "Team jersey", "Retired athlete", "Excellent", "$28"],
+                ["Kempa Team Backpack", "Equipment bag", "Merchant", "New", "$34"],
+                ["Erima Handball Socks", "Court socks", "Retired athlete", "Like new", "$14"],
+                ["Select Goalkeeper Pants", "Goalkeeper wear", "Merchant", "New", "$40"],
+                ["Kempa Attack Knee Pads", "Knee protection", "Retired athlete", "Excellent", "$27"],
+                ["Hummel Wrist Tape", "Support accessory", "Merchant", "New", "$11"],
+                ["Molten Handball Pump", "Ball accessory", "Retired athlete", "Like new", "$13"],
+                ["Kempa Training Cones", "Training equipment", "Merchant", "New", "$18"]
+            ],
+            volleyball: [
+                ["Mikasa V300W Volleyball", "Training ball", "Merchant", "New", "$58"],
+                ["Asics Upcourt Shoes", "Court shoes", "Retired athlete", "Excellent", "$48"],
+                ["Nike Streak Volleyball", "Training ball", "Merchant", "Like new", "$32"],
+                ["Mizuno Arm Sleeves", "Arm support", "Retired athlete", "Excellent", "$20"],
+                ["Molten Volleyball Cart", "Training equipment", "Merchant", "New", "$95"],
+                ["Asics Volleyball Socks", "Court socks", "Retired athlete", "Like new", "$15"],
+                ["Nike Dri-FIT Jersey", "Team jersey", "Merchant", "New", "$35"],
+                ["Mikasa Ball Pump", "Ball accessory", "Retired athlete", "Excellent", "$12"],
+                ["Mizuno Knee Sleeve", "Knee support", "Merchant", "Like new", "$24"],
+                ["Molten Training Cones", "Training equipment", "Retired athlete", "New", "$17"],
+                ["Nike Club Volleyball Bag", "Equipment bag", "Merchant", "Excellent", "$42"]
+            ],
+            fitness: [
+                ["Concept2 Rowing Handle", "Rowing accessory", "Merchant", "New", "$45"],
+                ["Bowflex SelectTech Bench", "Strength equipment", "Retired athlete", "Excellent", "$180"],
+                ["Nike Training Gloves", "Training gloves", "Merchant", "Like new", "$22"],
+                ["Hyperice Massage Ball", "Recovery equipment", "Retired athlete", "Excellent", "$35"],
+                ["Gymboss Interval Timer", "Training timer", "Merchant", "New", "$28"],
+                ["Reebok Step Platform", "Aerobic equipment", "Retired athlete", "Like new", "$55"],
+                ["Ab Wheel Roller", "Core equipment", "Merchant", "New", "$18"],
+                ["Lacrosse Mobility Ball", "Mobility equipment", "Retired athlete", "Excellent", "$15"],
+                ["Gymnastik Pilates Ring", "Pilates equipment", "Merchant", "New", "$20"],
+                ["Rogue Weightlifting Belt", "Weightlifting support", "Retired athlete", "Like new", "$42"],
+                ["Slam Ball 12kg", "Conditioning equipment", "Merchant", "Excellent", "$50"]
+            ],
+            tennis: [
+                ["Head Speed MP Racket", "Tennis racket", "Merchant", "New", "$135"],
+                ["Yonex Ezone 98", "Tennis racket", "Retired athlete", "Excellent", "$110"],
+                ["Wilson Tennis Backpack", "Racket bag", "Merchant", "Like new", "$46"],
+                ["Babolat Team Shorts", "Tennis wear", "Retired athlete", "Excellent", "$25"],
+                ["Head Championship Balls", "Tennis balls", "Merchant", "New", "$14"],
+                ["Wilson Dampener Pack", "Racket accessory", "Retired athlete", "Like new", "$10"],
+                ["Babolat Syntec Grip", "Racket grip", "Merchant", "New", "$12"],
+                ["Nike Court Headband", "Tennis accessory", "Retired athlete", "Excellent", "$14"],
+                ["Yonex Tennis Shoes", "Court shoes", "Merchant", "Like new", "$62"],
+                ["Prince Ball Hopper", "Training equipment", "Retired athlete", "Excellent", "$48"],
+                ["Head Tennis Net", "Court equipment", "Merchant", "New", "$90"]
+            ],
+            karate: [
+                ["Arawaza Kumite Gi", "Karate uniform", "Merchant", "New", "$68"],
+                ["Tokaido Karate Gloves", "Hand protection", "Retired athlete", "Excellent", "$38"],
+                ["Arawaza Shin Guards", "Shin protection", "Merchant", "Like new", "$35"],
+                ["Hayashi Chest Protector", "Body protection", "Retired athlete", "Excellent", "$48"],
+                ["Tokaido Training Belt", "Martial arts belt", "Merchant", "New", "$18"],
+                ["Adidas Karate Bag", "Equipment bag", "Retired athlete", "Like new", "$40"],
+                ["Century Kick Shield", "Training pad", "Merchant", "Excellent", "$72"],
+                ["Arawaza Mouthguard", "Mouth protection", "Retired athlete", "New", "$16"],
+                ["Tokaido Head Guard", "Head protection", "Merchant", "Like new", "$55"],
+                ["Karate Tatami Mat", "Training mat", "Retired athlete", "Excellent", "$80"],
+                ["Century Elastic Bands", "Training equipment", "Merchant", "New", "$21"]
+            ],
+            mma: [
+                ["Hayabusa T3 Gloves", "MMA gloves", "Merchant", "New", "$95"],
+                ["Venum Elite Headgear", "Head protection", "Retired athlete", "Excellent", "$62"],
+                ["Fairtex Belly Pad", "Body protection", "Merchant", "Like new", "$115"],
+                ["RDX Grappling Shorts", "Training wear", "Retired athlete", "Excellent", "$28"],
+                ["Hayabusa Hand Wraps", "Hand protection", "Merchant", "New", "$18"],
+                ["Venum Contender Groin Guard", "Protective gear", "Retired athlete", "Like new", "$35"],
+                ["Fairtex Thai Pads", "Training pads", "Merchant", "Excellent", "$130"],
+                ["Tatami BJJ Gi", "Martial arts uniform", "Retired athlete", "New", "$75"],
+                ["RDX Focus Mitts", "Training pads", "Merchant", "Like new", "$45"],
+                ["Venum Training Bag", "Equipment bag", "Retired athlete", "Excellent", "$40"],
+                ["MMA Foam Roller", "Recovery equipment", "Merchant", "New", "$24"]
+            ],
+            kickboxing: [
+                ["Fairtex BGV14 Gloves", "Training gloves", "Merchant", "New", "$88"],
+                ["Twins Special Shin Guards", "Shin protection", "Retired athlete", "Excellent", "$70"],
+                ["Yokkao Boxing Shorts", "Training wear", "Merchant", "Like new", "$32"],
+                ["Top King Heavy Bag", "Punching bag", "Retired athlete", "Excellent", "$160"],
+                ["Fairtex Head Guard", "Head protection", "Merchant", "New", "$72"],
+                ["Twins Belly Protector", "Body protection", "Retired athlete", "Like new", "$98"],
+                ["Yokkao Hand Wraps", "Hand protection", "Merchant", "Excellent", "$15"],
+                ["Top King Focus Mitts", "Training pads", "Retired athlete", "New", "$58"],
+                ["Fairtex Ankle Supports", "Ankle support", "Merchant", "Like new", "$20"],
+                ["Everlast Gym Bag", "Equipment bag", "Retired athlete", "Excellent", "$36"],
+                ["Century Kick Shield", "Training pad", "Merchant", "New", "$68"]
+            ],
+            running: [
+                ["Nike Pegasus 41", "Running shoes", "Merchant", "New", "$100"],
+                ["Asics Gel Nimbus", "Running shoes", "Retired athlete", "Excellent", "$95"],
+                ["Garmin Forerunner 55", "Running watch", "Merchant", "Like new", "$105"],
+                ["Skechers Running Cap", "Running accessory", "Retired athlete", "Excellent", "$15"],
+                ["Nathan Handheld Bottle", "Hydration gear", "Merchant", "New", "$20"],
+                ["Brooks Running Jacket", "Running wear", "Retired athlete", "Like new", "$45"],
+                ["CEP Compression Sleeves", "Running support", "Merchant", "Excellent", "$35"],
+                ["Puma Running Waistpack", "Running accessory", "Retired athlete", "New", "$18"],
+                ["Shokz OpenRun Headphones", "Running electronics", "Merchant", "Like new", "$120"],
+                ["Salomon Trail Shoes", "Trail shoes", "Retired athlete", "Excellent", "$85"],
+                ["Polar H10 Sensor", "Heart-rate monitor", "Merchant", "New", "$90"]
+            ],
+            basketball: [
+                ["Nike LeBron Witness", "Basketball shoes", "Merchant", "New", "$105"],
+                ["Under Armour Curry Shorts", "Basketball wear", "Retired athlete", "Excellent", "$28"],
+                ["Wilson NCAA Ball", "Training basketball", "Merchant", "Like new", "$35"],
+                ["Nike Elite Sleeves", "Arm support", "Retired athlete", "Excellent", "$20"],
+                ["SKLZ Agility Ladder", "Training equipment", "Merchant", "New", "$32"],
+                ["Spalding Ball Bag", "Equipment bag", "Retired athlete", "Like new", "$30"],
+                ["Jordan Jumpman Jersey", "Team jersey", "Merchant", "Excellent", "$45"],
+                ["Baden Shooter Basketball", "Training basketball", "Retired athlete", "New", "$38"],
+                ["Nike Pro Compression Tights", "Training wear", "Merchant", "Like new", "$30"],
+                ["Vertimax Jump Trainer", "Jump training", "Retired athlete", "Excellent", "$150"],
+                ["Spalding Coach Board", "Training accessory", "Merchant", "New", "$24"]
+            ],
+            cycling: [
+                ["Specialized Torch Helmet", "Cycling helmet", "Merchant", "New", "$95"],
+                ["Shimano Cycling Shoes", "Cycling shoes", "Retired athlete", "Excellent", "$85"],
+                ["Wahoo Elemnt Bolt", "Cycling computer", "Merchant", "Like new", "$180"],
+                ["Topeak Mini Pump", "Bike pump", "Retired athlete", "Excellent", "$24"],
+                ["Pearl Izumi Bib Shorts", "Cycling wear", "Merchant", "New", "$62"],
+                ["Park Tool Repair Kit", "Bike tools", "Retired athlete", "Like new", "$48"],
+                ["CamelBak Podium Bottle", "Hydration gear", "Merchant", "Excellent", "$14"],
+                ["Bontrager Bike Gloves", "Cycling gloves", "Retired athlete", "New", "$22"],
+                ["Abus Folding Lock", "Bike security", "Merchant", "Like new", "$55"],
+                ["Continental Road Tyre", "Bike component", "Retired athlete", "Excellent", "$38"],
+                ["Thule Bike Rack", "Transport equipment", "Merchant", "New", "$150"]
+            ],
+            gymnastics: [
+                ["GK Elite Training Leotard", "Training wear", "Merchant", "New", "$48"],
+                ["Spieth Uneven Bars Grips", "Hand grips", "Retired athlete", "Excellent", "$40"],
+                ["Tumbl Trak Incline Mat", "Training mat", "Merchant", "Like new", "$125"],
+                ["Aai Balance Beam", "Training equipment", "Retired athlete", "Excellent", "$190"],
+                ["Spieth Pommel Horse Handles", "Training equipment", "Merchant", "New", "$55"],
+                ["GK Elite Warm-Up Jacket", "Training wear", "Retired athlete", "Like new", "$42"],
+                ["Tumbl Trak Panel Mat", "Safety mat", "Merchant", "Excellent", "$135"],
+                ["Omnigym Ankle Supports", "Joint support", "Retired athlete", "New", "$19"],
+                ["Spieth Chalk Bowl", "Training accessory", "Merchant", "Like new", "$25"],
+                ["Aai Practice Rings", "Training equipment", "Retired athlete", "Excellent", "$45"],
+                ["GK Elite Hair Kit", "Gymnastics accessory", "Merchant", "New", "$12"]
+            ],
+            ballet: [
+                ["Bloch Serenade Pointe Shoes", "Pointe shoes", "Merchant", "New", "$48"],
+                ["Capezio Hanami Leotard", "Dancewear", "Retired athlete", "Excellent", "$35"],
+                ["Bloch Warm-Up Sweater", "Dancewear", "Merchant", "Like new", "$42"],
+                ["Sansha Ballet Tights", "Dancewear", "Retired athlete", "Excellent", "$18"],
+                ["Capezio Foot Undies", "Dance accessories", "Merchant", "New", "$16"],
+                ["Bloch Dance Bag", "Dance bag", "Retired athlete", "Like new", "$34"],
+                ["Harlequin Practice Mat", "Studio equipment", "Merchant", "Excellent", "$75"],
+                ["Capezio Ballet Skirt", "Dancewear", "Retired athlete", "New", "$25"],
+                ["Bloch Gel Toe Pads", "Pointe accessory", "Merchant", "Like new", "$14"],
+                ["Sansha Canvas Slippers", "Ballet shoes", "Retired athlete", "Excellent", "$22"],
+                ["Bunheads Ribbon Kit", "Pointe accessory", "Merchant", "New", "$11"]
+            ]
+        };
+
+        sports.forEach((sport) => {
+            productsBySport[sport.id] = productsBySport[sport.id].concat(extraProductsBySport[sport.id]);
+        });
+
+        const sportGrid = document.getElementById("sport-grid");
+        const productGrid = document.getElementById("product-grid");
+        const productsTitle = document.getElementById("products-title");
+        const productsCount = document.getElementById("products-count");
+        const backToSports = document.getElementById("back-to-sports");
+        const requestedSport = new URLSearchParams(window.location.search).get("sport");
+
+        function formatEgyptianPrice(price) {
+            const amountInDollars = Number(price.replace("$", ""));
+            const amountInEgyptianPounds = amountInDollars * 50;
+            return `EGP ${amountInEgyptianPounds.toLocaleString("en-EG")}`;
+        }
+
+        function renderSports(selectedId) {
+            sportGrid.innerHTML = sports.map((sport) => `
+                <button class="sport-card${sport.id === selectedId ? " selected" : ""}" type="button" data-sport="${sport.id}" aria-pressed="${sport.id === selectedId}">
+                    <span class="sport-mark">${sport.mark}</span>
+                    <span class="sport-name">${sport.name}</span>
+                    <span class="sport-description">${sport.description}</span>
+                    <span class="sport-arrow" aria-hidden="true">&#8594;</span>
+                </button>
+            `).join("");
+
+            sportGrid.querySelectorAll(".sport-card").forEach((card) => {
+                card.addEventListener("click", () => {
+                    window.location.href = `equepment.html?sport=${card.dataset.sport}#products`;
+                });
+            });
+        }
+
+        function renderMarketplace(sportId) {
+            const sport = sports.find((item) => item.id === sportId);
+            const products = productsBySport[sportId] || productsBySport.swimming;
+            const isProductPage = Boolean(requestedSport && sport);
+            renderSports(sportId);
+            productsTitle.textContent = `${sport.name} equipment`;
+            productsCount.textContent = `${products.length} verified community listings`;
+            document.body.classList.toggle("product-view", isProductPage);
+            backToSports.hidden = !isProductPage;
+            productGrid.innerHTML = products.map((product) => `
+                <article class="product-card">
+                    <div class="product-visual"><span>${sport.mark}</span><small>ORIGINAL</small></div>
+                    <div class="product-details">
+                        <div class="product-meta"><span>${product[1]}</span><span class="verified">Verified</span></div>
+                        <h3>${product[0]}</h3>
+                        <div class="product-info"><span>Seller: ${product[2]}</span><span>Condition: ${product[3]}</span></div>
+                        <div class="product-footer"><strong>${formatEgyptianPrice(product[4])}</strong><button type="button" class="view-button">View item</button></div>
+                    </div>
+                </article>
+            `).join("");
+        }
+
+        renderMarketplace(requestedSport && productsBySport[requestedSport] ? requestedSport : "swimming");
+    </script>
 </body>
 </html>

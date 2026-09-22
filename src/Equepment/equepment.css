@@ -1,0 +1,467 @@
+:root {
+	--navy: #0B1F3A;
+	--blue-1: #123E6B;
+	--blue-2: #1F6FB3;
+	--blue-3: #4AA8D8;
+	--blue-4: #8ED3F4;
+	--blue-5: #DFF4FF;
+	--pink: #E42264;
+	--pink-2: #F04B7A;
+	--pink-4: #FFC0D5;
+	--white: #F9FCFF;
+	--text: #102235;
+	--line: rgba(18, 62, 107, 0.14);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: 'Playfair Display', Georgia, serif;
+	color: var(--text);
+	background: linear-gradient(180deg, #e8f7ff 0%, var(--white) 48%, #fff 100%);
+}
+
+button,
+a {
+	font: inherit;
+}
+
+header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+header .active-link {
+	background: rgba(255, 255, 255, 0.14);
+}
+
+.marketplace-hero,
+.sports-section,
+.products-section,
+.footer-container {
+	width: min(1200px, calc(100% - 48px));
+	margin: 0 auto;
+}
+
+.marketplace-hero {
+	min-height: 440px;
+	display: grid;
+	grid-template-columns: 1.5fr 0.8fr;
+	align-items: center;
+	gap: 80px;
+	padding: 70px 0 64px;
+	position: relative;
+}
+
+.marketplace-hero::before {
+	content: "";
+	position: absolute;
+	width: 280px;
+	height: 280px;
+	right: 8%;
+	top: 42px;
+	border: 1px solid rgba(31, 111, 179, 0.2);
+	border-radius: 50%;
+	box-shadow: 0 0 0 28px rgba(142, 211, 244, 0.13), 0 0 0 58px rgba(228, 34, 100, 0.05);
+	pointer-events: none;
+}
+
+.hero-copy,
+.hero-note {
+	position: relative;
+	z-index: 1;
+}
+
+.eyebrow {
+	margin: 0 0 14px;
+	color: var(--pink);
+	font: 700 0.72rem/1.2 Arial, sans-serif;
+	letter-spacing: 0.16em;
+}
+
+.hero-copy h1 {
+	max-width: 700px;
+	margin: 0 0 20px;
+	color: var(--navy);
+	font-size: clamp(2.5rem, 5vw, 4.8rem);
+	line-height: 1.03;
+}
+
+.hero-text {
+	max-width: 620px;
+	margin: 0 0 28px;
+	font-size: 1.08rem;
+	line-height: 1.7;
+}
+
+.hero-button,
+.view-button {
+	display: inline-block;
+	border: 0;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;
+	font: 700 0.9rem Arial, sans-serif;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-button {
+	padding: 14px 22px;
+	color: var(--white);
+	background: var(--pink);
+	box-shadow: 0 10px 22px rgba(228, 34, 100, 0.25);
+}
+
+.hero-button:hover,
+.view-button:hover {
+	transform: translateY(-2px);
+}
+
+.hero-note {
+	max-width: 290px;
+	justify-self: end;
+	padding: 26px;
+	border-top: 4px solid var(--pink);
+	background: rgba(255, 255, 255, 0.72);
+	box-shadow: 0 16px 36px rgba(11, 31, 58, 0.1);
+}
+
+.note-number {
+	display: block;
+	margin-bottom: 34px;
+	color: var(--blue-2);
+	font: 700 0.8rem Arial, sans-serif;
+}
+
+.hero-note strong {
+	display: block;
+	margin-bottom: 10px;
+	color: var(--navy);
+	font-size: 1.3rem;
+}
+
+.hero-note p {
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.6;
+}
+
+.sports-section,
+.products-section {
+	padding: 55px 0 70px;
+}
+
+.sports-section {
+	border-top: 1px solid var(--line);
+}
+
+.products-section {
+	border-top: 1px solid var(--line);
+}
+
+.products-heading-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 10px;
+}
+
+.back-to-sports {
+	display: inline-block;
+	padding: 9px 13px;
+	border: 1px solid var(--blue-2);
+	border-radius: 7px;
+	color: var(--blue-1);
+	font: 700 0.78rem Arial, sans-serif;
+	text-decoration: none;
+	transition: 0.2s ease;
+}
+
+.back-to-sports:hover {
+	color: var(--white);
+	background: var(--blue-1);
+}
+
+.product-view .marketplace-hero,
+.product-view .sports-section {
+	display: none;
+}
+
+.product-view .products-section {
+	min-height: calc(100vh - 190px);
+	padding-top: 70px;
+}
+
+.section-heading {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 30px;
+	margin-bottom: 30px;
+}
+
+.section-heading h2 {
+	margin: 0;
+	color: var(--navy);
+	font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.section-heading > p {
+	max-width: 350px;
+	margin: 0 0 3px;
+	line-height: 1.6;
+	text-align: right;
+}
+
+.sport-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 14px;
+}
+
+.sport-card {
+	min-height: 155px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 19px;
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	color: var(--text);
+	background: rgba(255, 255, 255, 0.78);
+	cursor: pointer;
+	text-align: left;
+	transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sport-card:hover,
+.sport-card:focus-visible,
+.sport-card.selected {
+	border-color: var(--pink);
+	box-shadow: 0 12px 25px rgba(228, 34, 100, 0.13);
+	outline: none;
+	transform: translateY(-3px);
+}
+
+.sport-card.selected {
+	background: linear-gradient(145deg, var(--navy), var(--blue-1));
+	color: var(--white);
+}
+
+.sport-mark {
+	display: grid;
+	width: 38px;
+	height: 38px;
+	place-items: center;
+	margin-bottom: 18px;
+	border-radius: 50%;
+	color: var(--navy);
+	background: var(--blue-4);
+	font: 700 0.72rem Arial, sans-serif;
+}
+
+.sport-card.selected .sport-mark {
+	color: var(--white);
+	background: var(--pink);
+}
+
+.sport-name {
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+
+.sport-description {
+	margin-top: 7px;
+	color: #4c6173;
+	font: 0.75rem/1.4 Arial, sans-serif;
+}
+
+.sport-card.selected .sport-description {
+	color: var(--blue-5);
+}
+
+.sport-arrow {
+	position: absolute;
+	right: 17px;
+	bottom: 17px;
+	color: var(--pink);
+	font: 1.1rem Arial, sans-serif;
+}
+
+.product-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.product-card {
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 9px 24px rgba(11, 31, 58, 0.07);
+}
+
+.product-visual {
+	height: 165px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	color: var(--blue-2);
+	background: linear-gradient(135deg, var(--blue-5), #fff);
+	font-size: 3rem;
+	font-weight: 800;
+}
+
+.product-visual small {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	padding: 5px 7px;
+	border-radius: 4px;
+	color: var(--navy);
+	background: rgba(255, 255, 255, 0.85);
+	font: 700 0.58rem Arial, sans-serif;
+	letter-spacing: 0.08em;
+}
+
+.product-details {
+	padding: 20px;
+}
+
+.product-meta,
+.product-info,
+.product-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.product-meta {
+	color: var(--blue-2);
+	font: 700 0.7rem Arial, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.verified {
+	color: #24714a;
+}
+
+.product-details h3 {
+	min-height: 50px;
+	margin: 12px 0;
+	color: var(--navy);
+	font-size: 1.2rem;
+}
+
+.product-info {
+	flex-direction: column;
+	padding: 12px 0;
+	border-top: 1px solid var(--line);
+	color: #526879;
+	font: 0.78rem/1.45 Arial, sans-serif;
+}
+
+.product-footer {
+	align-items: center;
+	margin-top: 10px;
+}
+
+.product-footer strong {
+	color: var(--pink);
+	font: 700 1.25rem Arial, sans-serif;
+}
+
+.view-button {
+	padding: 9px 12px;
+	color: var(--white);
+	background: var(--navy);
+}
+
+footer {
+	margin-top: 10px;
+}
+
+footer .footer-container {
+	padding: 0;
+}
+
+@media (max-width: 1000px) {
+	header nav {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.marketplace-hero {
+		grid-template-columns: 1fr;
+		gap: 35px;
+	}
+
+	.hero-note {
+		justify-self: start;
+	}
+
+	.sport-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 700px) {
+	.marketplace-hero,
+	.sports-section,
+	.products-section,
+	.footer-container {
+		width: min(100% - 30px, 560px);
+	}
+
+	.marketplace-hero {
+		min-height: auto;
+		padding: 54px 0;
+	}
+
+	.marketplace-hero::before {
+		width: 170px;
+		height: 170px;
+		right: 0;
+		top: 35px;
+	}
+
+	.hero-copy h1 {
+		font-size: clamp(2.25rem, 12vw, 3.4rem);
+	}
+
+	.section-heading,
+	.products-heading {
+		display: block;
+	}
+
+	.products-heading-actions {
+		align-items: flex-start;
+		margin-top: 15px;
+	}
+
+	.section-heading > p {
+		margin-top: 12px;
+		text-align: left;
+	}
+
+	.sport-grid,
+	.product-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.sport-card {
+		min-height: 125px;
+	}
+}
