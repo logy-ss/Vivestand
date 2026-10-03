@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Consultation - Vivestand</title>
+    <link rel="stylesheet" href="../Components/tokens.css">
     <link rel="stylesheet" href="../Components/header.css">
     <link rel="stylesheet" href="../Components/footer.css">
+    <link rel="stylesheet" href="../Components/chat.css">
     <link rel="stylesheet" href="online.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -89,7 +91,7 @@
                 <div id="form-step" class="form-section">
                     <div class="session-badge">FREE FIRST CONSULTATION</div>
                     <h3>Your Questions</h3>
-                    <p style="color: #102235; margin-bottom: 20px;">Please answer these 3 quick questions so our doctor can prepare for your consultation.</p>
+                    <p class="form-intro">Please answer these 3 quick questions so our doctor can prepare for your consultation.</p>
                     
                     <form id="consultation-form">
                         <div class="form-group">
@@ -117,12 +119,12 @@
                 <!-- TIMER SECTION (STEP 2) -->
                 <div id="timer-step" class="timer-section" style="display: none;">
                     <h3>Your Free Consultation</h3>
-                    <p style="color: #0B1F3A; font-size: 1rem; margin-bottom: 20px;">You have 10 minutes with our specialist</p>
+                    <p class="timer-intro">You have 10 minutes with our specialist</p>
                     <div class="timer-display" id="timer">10:00</div>
                     <p class="timer-label">Remaining time in this session</p>
 
-                    <div style="background: var(--white); padding: 20px; border-radius: 8px; margin: 20px 0;">
-                        <p style="color: #0B1F3A; margin: 0; line-height: 1.8;">
+                    <div class="review-note">
+                        <p>
                             <strong>Dr. Ahmed El-Shaer is reviewing your answers...</strong><br><br>
                             Thank you for providing your information. Our doctor is now preparing a personalized consultation based on your responses. 
                             During this 10-minute session, the doctor will provide initial assessment and guidance for your injury recovery.
@@ -134,7 +136,7 @@
 
                 <!-- PRICING SECTION (STEP 3) -->
                 <div id="pricing-step" style="display: none;">
-                    <h3 style="text-align: center; color: #0B1F3A; margin-bottom: 30px;">Continue Your Treatment</h3>
+                    <h3 class="pricing-title">Continue Your Treatment</h3>
                     
                     <div class="pricing-section">
                         <h4>Full Consultation Session</h4>
@@ -142,9 +144,9 @@
                         <p class="price-description">Per consultation session</p>
                     </div>
 
-                    <div style="background: linear-gradient(135deg, #DFF4FF, #F9FCFF); padding: 25px; border-radius: 12px; border: 2px solid #4AA8D8; margin: 20px 0;">
-                        <h4 style="color: #0B1F3A; margin-top: 0;">What You Get:</h4>
-                        <ul style="color: #102235; line-height: 2; margin: 0; padding-left: 20px;">
+                    <div class="benefits-box">
+                        <h4>What You Get:</h4>
+                        <ul>
                             <li>Full 30-minute consultation with specialist</li>
                             <li>Detailed treatment and recovery plan</li>
                             <li>Medication and exercise recommendations</li>

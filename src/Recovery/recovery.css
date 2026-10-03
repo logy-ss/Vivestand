@@ -1,21 +1,8 @@
-
-:root {
-	--navy: #0B1F3A;
-	--blue-1: #123E6B;
-	--blue-2: #1F6FB3;
-	--blue-3: #4AA8D8;
-	--blue-4: #8ED3F4;
-	--blue-5: #DFF4FF;
-	--pink: #E42264;
-	--pink-2: #F04B7A;
-	--pink-3: #F67DA0;
-	--pink-4: #FFC0D5;
-	--white: #F9FCFF;
-	--text: #102235;
+* {
+	box-sizing: border-box;
 }
 
 body {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin: 0;
 	padding: 0;
 	background: linear-gradient(180deg, rgba(223, 244, 255, 0.78), rgba(249, 252, 255, 0.9)), url('../../images/background-image.png');
@@ -26,13 +13,6 @@ body {
 	color: var(--text);
 }
 
-header {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-	direction: ltr;
-}
-
 .container {
 	max-width: 980px;
 	margin: 0 auto;
@@ -40,7 +20,7 @@ header {
 }
 
 .recovery-main {
-	padding: 24px 0;
+	padding: 24px 20px;
 }
 
 .intro h1 {
@@ -66,9 +46,9 @@ header {
 }
 
 .phases ol {
-	padding-left: 18px;
-	border-left: 4px solid var(--pink);
-	padding-right: 12px;
+	padding-inline-start: 32px;
+	padding-inline-end: 12px;
+	border-inline-start: 4px solid var(--pink);
 }
 
 .phases li {
@@ -79,7 +59,7 @@ header {
 .physio ul,
 .equipment ul {
 	list-style: disc;
-	margin-right: 18px;
+	margin-inline-start: 18px;
 }
 
 .physio li,
@@ -95,7 +75,7 @@ header {
 .warning {
 	background: rgba(228, 34, 100, 0.08);
 	padding: 16px;
-	border-left: 4px solid var(--pink);
+	border-inline-start: 4px solid var(--pink);
 	border-radius: 8px;
 	margin: 30px 0;
 	box-shadow: 0 4px 12px rgba(228, 34, 100, 0.15);
@@ -121,26 +101,6 @@ header {
 	color: var(--text);
 }
 
-.cta-button {
-	display: inline-block;
-	background: linear-gradient(135deg, var(--navy), var(--pink));
-	color: var(--white);
-	padding: 12px 28px;
-	border-radius: 8px;
-	text-decoration: none;
-	font-weight: 600;
-	border: none;
-	cursor: pointer;
-	transition: 0.3s ease;
-	box-shadow: 0 4px 12px rgba(228, 34, 100, 0.35);
-	margin-top: 12px;
-}
-
-.cta-button:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 6px 18px rgba(228, 34, 100, 0.45);
-}
-
 .sport-plans {
 	margin-top: 30px;
 }
@@ -164,18 +124,12 @@ header {
 }
 
 .week-list {
-	margin-right: 18px;
-	padding-right: 0;
+	margin: 0;
+	padding-inline-start: 24px;
 }
 
 .week-list li {
 	margin-bottom: 8px;
-}
-
-@media (min-width: 900px) {
-	.sport-plan {
-		display: block;
-	}
 }
 
 .bilingual {
@@ -209,7 +163,7 @@ header {
 	}
 
 	.bilingual .ar {
-		padding-left: 12px;
+		padding-inline-end: 12px;
 	}
 }
 

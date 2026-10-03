@@ -1,25 +1,9 @@
-:root {
-    --navy: #0B1F3A;
-    --blue-1: #123E6B;
-    --blue-2: #1F6FB3;
-    --blue-3: #4AA8D8;
-    --blue-4: #8ED3F4;
-    --blue-5: #DFF4FF;
-    --pink: #E42264;
-    --pink-2: #F04B7A;
-    --pink-3: #F67DA0;
-    --pink-4: #FFC0D5;
-    --white: #F9FCFF;
-    --text: #102235;
-}
-
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: 'Playfair Display', serif;
     background: linear-gradient(180deg, rgba(223, 244, 255, 0.78), rgba(249, 252, 255, 0.9)), url('../../images/background-image.png');
     background-size: cover;
     background-position: center;
@@ -35,8 +19,6 @@ body {
     justify-content: center;
     padding: 20px 20px 30px;
     margin: 0;
-    background: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
-                linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9));
     background-image: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
                       linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9)),
                       url('../../images/background-image.png');
@@ -106,22 +88,6 @@ body {
     min-height: 70vh;
     margin: 0;
     padding: 0;
-}
-
-.home-hero {
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 20px 30px;
-    background: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
-                linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9));
-    background-image: radial-gradient(circle at top left, rgba(142, 211, 244, 0.45), transparent 30%),
-                      linear-gradient(135deg, rgba(223, 244, 255, 0.8), rgba(255, 255, 255, 0.9)),
-                      url('../../images/background-image.png');
-    background-size: cover, cover, cover;
-    background-position: center, center, center;
-    background-repeat: no-repeat;
 }
 
 /* INJURY SELECTION SECTION */

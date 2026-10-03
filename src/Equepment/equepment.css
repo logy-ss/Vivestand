@@ -1,16 +1,7 @@
 :root {
-	--navy: #0B1F3A;
-	--blue-1: #123E6B;
-	--blue-2: #1F6FB3;
-	--blue-3: #4AA8D8;
-	--blue-4: #8ED3F4;
-	--blue-5: #DFF4FF;
-	--pink: #E42264;
-	--pink-2: #F04B7A;
-	--pink-4: #FFC0D5;
-	--white: #F9FCFF;
-	--text: #102235;
 	--line: rgba(18, 62, 107, 0.14);
+	--muted: #526879;
+	--success: #24714a;
 }
 
 * {
@@ -23,14 +14,8 @@ html {
 
 body {
 	margin: 0;
-	font-family: 'Playfair Display', Georgia, serif;
 	color: var(--text);
 	background: linear-gradient(180deg, #e8f7ff 0%, var(--white) 48%, #fff 100%);
-}
-
-button,
-a {
-	font: inherit;
 }
 
 header {
@@ -83,7 +68,9 @@ header .active-link {
 .eyebrow {
 	margin: 0 0 14px;
 	color: var(--pink);
-	font: 700 0.72rem/1.2 Arial, sans-serif;
+	font-weight: 700;
+	font-size: 0.72rem;
+	line-height: 1.2;
 	letter-spacing: 0.16em;
 }
 
@@ -109,7 +96,8 @@ header .active-link {
 	border-radius: 8px;
 	cursor: pointer;
 	text-decoration: none;
-	font: 700 0.9rem Arial, sans-serif;
+	font-weight: 700;
+	font-size: 0.9rem;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -138,7 +126,8 @@ header .active-link {
 	display: block;
 	margin-bottom: 34px;
 	color: var(--blue-2);
-	font: 700 0.8rem Arial, sans-serif;
+	font-weight: 700;
+	font-size: 0.8rem;
 }
 
 .hero-note strong {
@@ -180,7 +169,8 @@ header .active-link {
 	border: 1px solid var(--blue-2);
 	border-radius: 7px;
 	color: var(--blue-1);
-	font: 700 0.78rem Arial, sans-serif;
+	font-weight: 700;
+	font-size: 0.78rem;
 	text-decoration: none;
 	transition: 0.2s ease;
 }
@@ -266,7 +256,8 @@ header .active-link {
 	border-radius: 50%;
 	color: var(--navy);
 	background: var(--blue-4);
-	font: 700 0.72rem Arial, sans-serif;
+	font-weight: 700;
+	font-size: 0.72rem;
 }
 
 .sport-card.selected .sport-mark {
@@ -281,8 +272,9 @@ header .active-link {
 
 .sport-description {
 	margin-top: 7px;
-	color: #4c6173;
-	font: 0.75rem/1.4 Arial, sans-serif;
+	color: var(--muted);
+	font-size: 0.75rem;
+	line-height: 1.4;
 }
 
 .sport-card.selected .sport-description {
@@ -294,7 +286,7 @@ header .active-link {
 	right: 17px;
 	bottom: 17px;
 	color: var(--pink);
-	font: 1.1rem Arial, sans-serif;
+	font-size: 1.1rem;
 }
 
 .product-grid {
@@ -331,7 +323,8 @@ header .active-link {
 	border-radius: 4px;
 	color: var(--navy);
 	background: rgba(255, 255, 255, 0.85);
-	font: 700 0.58rem Arial, sans-serif;
+	font-weight: 700;
+	font-size: 0.58rem;
 	letter-spacing: 0.08em;
 }
 
@@ -349,13 +342,14 @@ header .active-link {
 
 .product-meta {
 	color: var(--blue-2);
-	font: 700 0.7rem Arial, sans-serif;
+	font-weight: 700;
+	font-size: 0.7rem;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
 }
 
 .verified {
-	color: #24714a;
+	color: var(--success);
 }
 
 .product-details h3 {
@@ -369,8 +363,9 @@ header .active-link {
 	flex-direction: column;
 	padding: 12px 0;
 	border-top: 1px solid var(--line);
-	color: #526879;
-	font: 0.78rem/1.45 Arial, sans-serif;
+	color: var(--muted);
+	font-size: 0.78rem;
+	line-height: 1.45;
 }
 
 .product-footer {
@@ -380,7 +375,8 @@ header .active-link {
 
 .product-footer strong {
 	color: var(--pink);
-	font: 700 1.25rem Arial, sans-serif;
+	font-weight: 700;
+	font-size: 1.25rem;
 }
 
 .view-button {
@@ -398,11 +394,6 @@ footer .footer-container {
 }
 
 @media (max-width: 1000px) {
-	header nav {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
 	.marketplace-hero {
 		grid-template-columns: 1fr;
 		gap: 35px;

@@ -1,25 +1,9 @@
-:root {
-    --navy: #0B1F3A;
-    --blue-1: #123E6B;
-    --blue-2: #1F6FB3;
-    --blue-3: #4AA8D8;
-    --blue-4: #8ED3F4;
-    --blue-5: #DFF4FF;
-    --pink: #E42264;
-    --pink-2: #F04B7A;
-    --pink-3: #F67DA0;
-    --pink-4: #FFC0D5;
-    --white: #F9FCFF;
-    --text: #102235;
-}
-
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     min-height: 100vh;
     display: grid;
     place-items: center;
@@ -29,6 +13,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--text);
+    padding: 16px;
 }
 
 main {

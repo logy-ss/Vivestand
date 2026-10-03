@@ -89,3 +89,39 @@ header .nav-actions .login-btn {
 header .nav-actions a:hover {
     transform: translateY(-1px);
 }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+    header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    header ul {
+        gap: 4px;
+    }
+
+    header li a {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+    header .brand img {
+        width: 44px;
+        height: 44px;
+    }
+
+    header .brand-name {
+        font-size: 1.1rem;
+    }
+
+    header .nav-actions a {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
