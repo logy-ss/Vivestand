@@ -159,6 +159,8 @@ body {
 }
 
 .consult-btn {
+    display: inline-block;
+    text-decoration: none;
     background: linear-gradient(135deg, var(--pink), var(--pink-2));
     color: var(--white);
     border: none;

@@ -18,26 +18,30 @@
                 <h1>Sign Up page</h1>
             </div>
 
-            <div>
-                <label for="name">full name</label>
-                <input type="text" id="name" placeholder="write your name">
-            </div>
-            <div>
-                <label for="age">age</label>
-                <input type="number" id="age" placeholder="write your age">
-            </div>
-            <div>
-                <label for="email">email</label>
-                <input type="email" id="email" placeholder="write your email">
-            </div>
-            <div>
-                <label for="password">password</label>
-                <input type="password" id="password" placeholder="write your password">
-            </div>
+            <form id="signup-form" novalidate>
+                <div>
+                    <label for="name">full name</label>
+                    <input type="text" id="name" placeholder="write your name">
+                </div>
+                <div>
+                    <label for="age">age</label>
+                    <input type="number" id="age" placeholder="write your age">
+                </div>
+                <div>
+                    <label for="email">email</label>
+                    <input type="email" id="email" placeholder="write your email">
+                </div>
+                <div>
+                    <label for="password">password</label>
+                    <input type="password" id="password" placeholder="write your password">
+                </div>
 
-            <button type="submit">Sign Up</button>
+                <p class="form-message" id="form-message"></p>
+                <button type="submit">Sign Up</button>
+            </form>
         </div>
     </main>
+    <script src="signup.js"></script>
 </body>
 
 </html>

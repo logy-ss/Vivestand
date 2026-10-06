@@ -34,6 +34,7 @@
             </div>
 
             <div class="nav-actions">
+                <a class="cart-link" href="../Cart/cart.html">🛒 Cart (<span class="cart-count">0</span>)</a>
                 <a class="link" href="../Signup/signup.html">Signup</a>
                 <a class="login-btn" href="../Login/login.html">Login</a>
             </div>
@@ -57,8 +58,8 @@
                 <div class="doctor-info-left">
                     <div class="doctor-info-icon">👨‍⚕️</div>
                 
-                    <p class="doctor-info-qual" id="doctor-qua
-                    lification">MD, Sports Medicine</p>
+                    <h3>Dr. Ahmed El-Shaer</h3>
+                    <p class="doctor-info-qual">MD, Sports Medicine | Cairo Medical University | 16+ years</p>
                 </div>
                 <div class="doctor-info-right">
                     <h4>About This Consultation</h4>
@@ -85,6 +86,10 @@
                         <div class="step-number">3</div>
                         <div class="step-label">Pricing</div>
                     </div>
+                    <div class="step" id="step-4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Book</div>
+                    </div>
                 </div>
 
                 <!-- FORM SECTION (STEP 1) -->
@@ -110,7 +115,7 @@
                         </div>
 
                         <div class="btn-group">
-                            <button type="button" class="btn btn-secondary" onclick="goToDoctor()">Cancel</button>
+                            <a class="btn btn-secondary" href="../Doctors/doctors.html">Cancel</a>
                             <button type="submit" class="btn btn-primary">Start Free Session</button>
                         </div>
                     </form>
@@ -131,7 +136,7 @@
                         </p>
                     </div>
 
-                    <button type="button" class="btn btn-primary" onclick="endSession()">End Session</button>
+                    <button type="button" class="btn btn-primary" id="end-session-btn">End Session</button>
                 </div>
 
                 <!-- PRICING SECTION (STEP 3) -->
@@ -156,8 +161,35 @@
                     </div>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary" onclick="goHome()">Back to Home</button>
-                        <button type="button" class="btn btn-primary" onclick="bookNextSession()">Book Next Session (300 EGP)</button>
+                        <a class="btn btn-secondary" href="../Home/home.html">Back to Home</a>
+                        <button type="button" class="btn btn-primary" id="book-next-btn">Book Next Session (300 EGP)</button>
+                    </div>
+                </div>
+
+                <!-- BOOKING SECTION (STEP 4) -->
+                <div id="booking-step" style="display: none;">
+                    <h3 class="pricing-title">Pick your next session</h3>
+
+                    <form id="booking-form" class="booking-form">
+                        <div class="form-group">
+                            <label for="booking-date">Date</label>
+                            <input type="date" id="booking-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-time">Time</label>
+                            <input type="time" id="booking-time">
+                        </div>
+                        <p class="form-message" id="booking-message"></p>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">Confirm booking</button>
+                        </div>
+                    </form>
+
+                    <div class="booking-confirmed" id="booking-confirmed" style="display: none;">
+                        <h4>✓ Booked: Dr. Ahmed El-Shaer</h4>
+                        <p id="booking-summary"></p>
+                        <p>300 EGP · pay at the session (this is a demo, nothing was sent)</p>
+                        <a class="btn btn-secondary" href="../Home/home.html">Back to Home</a>
                     </div>
                 </div>
 
@@ -180,7 +212,7 @@
             </div>
         </div>
         <div class="chat-input-container">
-            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." maxlength="200">
             <button class="chat-send" id="chatSend">Send</button>
         </div>
     </div>
@@ -215,123 +247,9 @@
         </div>
     </footer>
 
-    <script>
-        let timerInterval = null;
-        let timeRemaining = 600; // 10 minutes in seconds
 
-        // Doctors database
-        const doctorsDatabase = {
-            'ahmed-el-shaer': {
-                name: 'Dr. Ahmed El-Shaer',
-                specialty: 'Shoulder & Rotator Cuff Specialist',
-                qualification: 'MD, Sports Medicine | Cairo Medical University | 16+ years'
-            },
-            'karim-nassar': {
-                name: 'Dr. Karim Nassar',
-                specialty: 'Shoulder Dislocation Specialist',
-                qualification: 'MD, Orthopedic Surgery | Alexandria University | 18+ years'
-            },
-            'hassan-moussa': {
-                name: 'Dr. Hassan Moussa',
-                specialty: 'Shoulder Pain Management',
-                qualification: 'MD, Sports Medicine | Ain Shams University | 14+ years'
-            },
-            'osama-gamal': {
-                name: 'Dr. Osama Gamal',
-                specialty: 'ACL Injury Specialist',
-                qualification: 'MD, Orthopedic Surgery | Cairo Medical University | 18+ years'
-            },
-            'abdelrahman-el-saed': {
-                name: 'Dr. Abdelrahman El Saed',
-                specialty: 'Advanced Physical Therapy',
-                qualification: 'DPT, Certified Specialist | Cairo University | 15+ years'
-            }
-        };
-
-        // Initialize page
-        window.addEventListener('load', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const doctorId = urlParams.get('doctor');
-            
-            if (doctorId && doctorsDatabase[doctorId]) {
-                const doctor = doctorsDatabase[doctorId];
-                document.getElementById('doctor-name').textContent = doctor.name;
-                document.getElementById('doctor-specialty').textContent = doctor.specialty;
-                document.getElementById('doctor-qualification').textContent = doctor.qualification;
-            }
-        });
-
-        // Handle form submission
-        document.getElementById('consultation-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Save answers
-            const answers = {
-                q1: document.getElementById('q1').value,
-                q2: document.getElementById('q2').value,
-                q3: document.getElementById('q3').value
-            };
-            localStorage.setItem('consultationAnswers', JSON.stringify(answers));
-
-            // Move to next step
-            document.getElementById('form-step').style.display = 'none';
-            document.getElementById('timer-step').style.display = 'block';
-
-            // Update step indicator
-            document.getElementById('step-1').classList.remove('active');
-            document.getElementById('step-2').classList.add('active');
-
-            // Start timer
-            startTimer();
-        });
-
-        // Timer function
-        function startTimer() {
-            timeRemaining = 600; // 10 minutes
-            updateTimerDisplay();
-
-            timerInterval = setInterval(function() {
-                timeRemaining--;
-
-                if (timeRemaining <= 0) {
-                    clearInterval(timerInterval);
-                    endSession();
-                } else {
-                    updateTimerDisplay();
-                }
-            }, 1000);
-        }
-
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
-            document.getElementById('timer').textContent = 
-                (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-        }
-
-        function endSession() {
-            if (timerInterval) clearInterval(timerInterval);
-
-            document.getElementById('timer-step').style.display = 'none';
-            document.getElementById('pricing-step').style.display = 'block';
-
-            document.getElementById('step-2').classList.remove('active');
-            document.getElementById('step-3').classList.add('active');
-        }
-
-        function bookNextSession() {
-            alert('Thank you! Next session (300 EGP) booking will be available soon. Redirecting to home...');
-            goHome();
-        }
-
-        function goHome() {
-            window.location.href = '../Home/home.html';
-        }
-
-        function goToDoctor() {
-            window.location.href = '../Doctors/doctors.html';
-        }
-    </script>
-
+    <script src="../Components/cart-count.js"></script>
+    <script src="../Components/chat.js"></script>
+    <script src="online.js"></script>
 </body>
 </html>

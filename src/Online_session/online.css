@@ -283,6 +283,7 @@ body {
 }
 
 .btn {
+    display: inline-block;
     padding: 14px 30px;
     border-radius: 8px;
     font-weight: 700;
@@ -353,6 +354,32 @@ body {
     font-size: 0.85rem;
     color: var(--text);
     font-weight: 600;
+}
+
+/* BOOKING (STEP 4) */
+.form-message {
+    min-height: 1.5em;
+    margin: 0 0 10px;
+    color: var(--pink);
+    font-weight: 700;
+}
+
+.booking-confirmed {
+    text-align: center;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid var(--blue-3);
+    background: linear-gradient(135deg, var(--blue-5), var(--white));
+}
+
+.booking-confirmed h4 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-size: 1.2rem;
+}
+
+.booking-confirmed p {
+    margin: 0 0 12px;
 }
 
 /* RESPONSIVE */

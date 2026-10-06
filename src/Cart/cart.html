@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Your Cart - Vivestand</title>
     <link rel="stylesheet" href="../Components/tokens.css">
     <link rel="stylesheet" href="../Components/header.css">
     <link rel="stylesheet" href="../Components/footer.css">
-    <link rel="stylesheet" href="contact_us.css">
+    <link rel="stylesheet" href="cart.css">
     <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- HEADER & NAVIGATION -->
     <header>
         <nav>
             <div class="brand">
@@ -26,7 +27,7 @@
                     <li><a href="../Online_session/online.html">Online</a></li>
                     <li><a href="../Recovery/recovery.html">Recovery</a></li>
                     <li><a href="../Equepment/equepment.html">Equipment</a></li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
+                    <li><a href="../contact_us/contact_us.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -38,36 +39,40 @@
         </nav>
     </header>
 
-    <main class="page-shell">
-        <div class="login center">
-            <div class="title">
-                <h1>Contact Us</h1>
-            </div>
+    <main class="container cart-page">
+        <h1>Your cart</h1>
 
-            <form class="contact-form" id="contact-form" novalidate>
-                <div>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="write your name">
-                </div>
+        <!-- Shown when there is nothing in the cart -->
+        <p class="cart-empty" id="cart-empty">
+            Your cart is empty. Pick some gear in the <a href="../Equepment/equepment.html">Equipment shop</a>.
+        </p>
 
-                <div>
-                    <label for="number">Number</label>
-                    <input type="tel" id="number" placeholder="write your number">
-                </div>
+        <!-- Shown when there is something in the cart -->
+        <div id="cart-full">
+            <div class="cart-list" id="cart-list"></div>
+            <p class="cart-total">Total: <strong id="cart-total">EGP 0</strong></p>
 
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="write your email">
-                </div>
+            <form class="delivery-form" id="delivery-form" novalidate>
+                <h2>Where should we deliver?</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="write your name">
 
-                <div>
-                    <label for="problem">Add problem</label>
-                    <textarea id="problem" rows="4" placeholder="write your problem"></textarea>
-                </div>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="write your phone number">
+
+                <label for="address">Address</label>
+                <textarea id="address" rows="3" placeholder="street, building, city"></textarea>
 
                 <p class="form-message" id="form-message"></p>
-                <button type="submit">Send</button>
+                <button type="submit">Place order</button>
             </form>
+        </div>
+
+        <!-- Shown after "Place order" -->
+        <div class="order-placed" id="order-placed">
+            <h2>✓ Order placed</h2>
+            <p id="order-summary"></p>
+            <a href="../Equepment/equepment.html">Back to the Equipment shop</a>
         </div>
     </main>
 
@@ -101,7 +106,8 @@
             </div>
         </div>
     </footer>
+
     <script src="../Components/cart-count.js"></script>
-    <script src="contact_us.js"></script>
+    <script src="cart.js"></script>
 </body>
 </html>

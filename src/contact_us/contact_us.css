@@ -102,3 +102,16 @@ button:hover {
     transform: translateY(-1px);
     box-shadow: 0 14px 28px rgba(228, 34, 100, 0.28);
 }
+
+/* The line under the form that says what's missing, or thanks you */
+.form-message {
+    min-height: 1.4em;
+    margin: 0 0 12px;
+    color: var(--pink);
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-message.success {
+    color: var(--blue-2);
+}

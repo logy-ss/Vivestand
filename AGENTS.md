@@ -1,38 +1,54 @@
 # AGENTS.md - Vivestand
 
-## Project type
-Static HTML/CSS site — no build tools, bundler, package manager, or JS framework.
+Instructions for coding agents working in this repository (kept identical to CLAUDE.md).
 
-## Structure
-- `src/` — all pages, each in its own folder with paired `.html` + `.css`
-  - `Home/`, `Login/`, `Signup/`, `Doctors/`, `Professional/`, `Online_session/`, `Recovery/`, `Injuries/`, `Equepment/`
-  - `contact_us.html` + `contact_us.css` (top-level in `src/`, no folder)
-- `images/` — shared assets (logo, photos)
-- `test.html` — color palette reference (design system doc, not a live page)
-- `DOC.MD` / `DOC.pdf` — project spec (bilingual EN/AR)
+## Project
 
-## Conventions
-- Each page is a standalone HTML file linking its sibling CSS via `<link rel="stylesheet" href="pagename.css">`.
-- Inter-page navigation uses relative `../` paths (e.g. `../Doctors/doctors.html`).
-- CSS variables define the design system — repeated in each CSS file, not a shared stylesheet. Key palette:
-  - `--navy: #0B1F3A`, `--blue-1: #123E6B`, `--blue-2: #1F6FB3`, `--pink: #E42264`
-  - `--white: #F9FCFF`, `--text: #102235`
-- Font: Playfair Display (Google Fonts) in Home; Arial fallback elsewhere.
-- No JavaScript yet — pages are static HTML only (MVP phase).
+Vivestand: a static front-end demo for a platform that matches injured athletes with recovery plans, doctors, online consultations and second-hand sports gear. Product intent lives in `DOC.MD` (bilingual EN/AR) and `faq.md`; what the site does today, and its **Limits**, live in `README.md`.
 
-## How to preview
-Open any `.html` file directly in a browser, or use a local server:
+There is no server, package manager, build step, linter or test suite. Do not add frameworks, dependencies or build tooling unless explicitly asked.
+
+## Kid-simple rules (keep them)
+
+The code is written so a curious 12-year-old could read any file top to bottom and explain it back. Keep it that way:
+
+- **JS style:** plain `function` declarations with verb names (`showSpecialty`, `addToCart`, `placeOrder`), `for` loops and `if`s, text built with `+`. No arrow functions, `.map`/`.forEach`/`.reduce`, template strings, classes or clever one-liners.
+- **One short comment** above anything a kid would ask "why?" about, in kid words.
+- **Numbers at the top** in CAPITALS with a "why" comment (`const SESSION_SECONDS = 600; // 10 × 60`).
+- **Never `innerHTML`** with data or user text: build elements and set `textContent` (each file that needs it has its own small `makeElement`).
+- **Repetition beats abstraction** when it keeps a file readable on its own: each form page has its own `showProblem`, and each shop page its own `formatPrice`.
+- **Validate with plain `if`s** where a user will hit the problem (empty field, email without @, date in the past) and show a friendly message in the page's `.form-message`. Forms use `novalidate` so our messages show, not the browser's.
+- **Plain links over JS:** if a click only opens another page, make it an `<a href>` (Home injury cards, sport cards, "Consult Now").
+- **No libraries.** The only outside thing is the Delius font from Google Fonts.
+- Every simplification that removes safety or capability goes in `README.md` → **Limits**.
+
+## Preview and check
+
 ```bash
-python3 -m http.server 8000   # from repo root, then visit /src/Home/home.html
+python3 -m http.server 8000   # from repo root, then open http://localhost:8000/ (redirects to src/Home/home.html)
 ```
 
-## Gotchas
-- `Equepment/` is misspelled in the repo (should be "Equipment"). Match the existing spelling when adding files there.
-- `contact_us.html` is a stub — body contains only placeholder Arabic text.
-- `images/` has one oddly-named file (`55ce97ac2a9b7a52052cae0caaa1b169 (1).jpgllllllllllll.jpg`) — avoid referencing it; use `logo.png` instead.
-- Arabic content appears in commit messages and `DOC.MD`. The UI itself is currently English-only per `lang="en"` on all pages.
+Verification is by hand in a browser: walk the flows you touched (forms with empty fields, the cart, the Online steps) and check the browser console shows no errors.
 
-## Languages
-- UI: English
-- Spec doc (`DOC.MD`): bilingual English/Arabic
-- Git commit messages: Arabic
+## Architecture
+
+- Each page is a folder under `src/` with `page.html` + `page.css`, plus `page.js` when it has behaviour. Scripts load at the end of `<body>` with `<script src>`. No inline `<script>` or `onclick=""`. Pages link with relative paths (`../Doctors/doctors.html`) and images via `../../images/`. The root `index.html` only redirects to Home.
+- Shared files in `src/Components/`, linked before the page's own files:
+  - `tokens.css` (always first): the palette (`--navy`, `--blue-1`…`--blue-5`, `--pink`…`--pink-4`, `--white`, `--text`) and `--font-body` (Delius). It sets the body font and makes form controls inherit it, so pages never set `font-family`. Each page loads the Delius `<link>`. Page-only variables stay in that page's `:root` (Equipment's `--line`, `--muted`, `--success`).
+  - `header.css`, `footer.css`. Header/footer **markup** is copy-pasted into every page, so a nav change means editing every HTML file (including the 🛒 cart link). Login and Signup have no header.
+  - `chat.css` + `chat.js`: the canned-reply chat, used by Doctors and Online.
+  - `cart-count.js`: `loadCart()`, `saveCart()`, `showCartCount()`. The cart is a list in `localStorage["vivestand-cart"]` of `{ sport, mark, name, price, quantity }`. Loaded on every page with a header; Equipment and Cart also use its functions.
+- Data is hard-coded at the top of the page's JS:
+  - `injuries.js` → `INJURIES`, keyed by the name Home puts in `?injury=`. A new injury needs a Home card **and** an `INJURIES` entry with the same key.
+  - `equepment.js` → `SPORTS` and `PRODUCTS` (keyed by sport id, prices in EGP). `?sport=` picks the sport; no or unknown sport shows the sport list.
+- Online (`online.js`) is 4 steps in one page shown by `showStep(n)`: questions → 10-minute timer → pricing → booking.
+- Visual language: navy/blue gradients, pink primary buttons, cards. `src/Home/home.html` is the layout reference.
+- Recovery is an RTL Arabic page with LTR English blocks; use logical properties (`padding-inline-start`, `border-inline-start`) there.
+
+## Gotchas
+
+- `src/Equepment/` is misspelled; keep the existing spelling in paths.
+- `src/Professional/` holds `pave_your_well.html` (nav label "Pave Your Well").
+- `images/` contains a malformed filename (`55ce97ac... (1).jpgllllllllllll.jpg`); don't reference it.
+- UI is English (`lang="en"`, except Recovery); git commit messages are written in Arabic.
+- Track work in `ISSUES.md`.

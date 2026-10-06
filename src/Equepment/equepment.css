@@ -90,7 +90,7 @@ header .active-link {
 }
 
 .hero-button,
-.view-button {
+.add-button {
 	display: inline-block;
 	border: 0;
 	border-radius: 8px;
@@ -109,7 +109,7 @@ header .active-link {
 }
 
 .hero-button:hover,
-.view-button:hover {
+.add-button:hover {
 	transform: translateY(-2px);
 }
 
@@ -228,23 +228,17 @@ header .active-link {
 	border-radius: 10px;
 	color: var(--text);
 	background: rgba(255, 255, 255, 0.78);
-	cursor: pointer;
+	text-decoration: none;
 	text-align: left;
 	transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sport-card:hover,
-.sport-card:focus-visible,
-.sport-card.selected {
+.sport-card:focus-visible {
 	border-color: var(--pink);
 	box-shadow: 0 12px 25px rgba(228, 34, 100, 0.13);
 	outline: none;
 	transform: translateY(-3px);
-}
-
-.sport-card.selected {
-	background: linear-gradient(145deg, var(--navy), var(--blue-1));
-	color: var(--white);
 }
 
 .sport-mark {
@@ -260,11 +254,6 @@ header .active-link {
 	font-size: 0.72rem;
 }
 
-.sport-card.selected .sport-mark {
-	color: var(--white);
-	background: var(--pink);
-}
-
 .sport-name {
 	font-size: 1.05rem;
 	font-weight: 700;
@@ -275,10 +264,6 @@ header .active-link {
 	color: var(--muted);
 	font-size: 0.75rem;
 	line-height: 1.4;
-}
-
-.sport-card.selected .sport-description {
-	color: var(--blue-5);
 }
 
 .sport-arrow {
@@ -379,7 +364,7 @@ header .active-link {
 	font-size: 1.25rem;
 }
 
-.view-button {
+.add-button {
 	padding: 9px 12px;
 	color: var(--white);
 	background: var(--navy);
