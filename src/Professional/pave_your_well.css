@@ -83,20 +83,13 @@ body {
     transform: translateY(-2px);
 }
 
-/* ========== CONTAINER ========== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
-}
-
 .content-container {
     width: 100%;
 }
 
 /* ========== PREVENTION SECTION ========== */
 .prevention-section {
-    padding: 80px 20px;
+    padding: 80px 0;
     background: linear-gradient(135deg, rgba(223, 244, 255, 0.5), var(--white));
 }
 
@@ -157,7 +150,7 @@ body {
 
 /* ========== NUTRITION SECTION ========== */
 .nutrition-section {
-    padding: 80px 20px;
+    padding: 80px 0;
     background: var(--white);
 }
 
@@ -279,7 +272,7 @@ body {
 
 /* ========== EXERCISES SECTION ========== */
 .exercises-section {
-    padding: 80px 20px;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--blue-5), rgba(223, 244, 255, 0.3));
 }
 
@@ -384,12 +377,15 @@ body {
 }
 
 .weekly-plan {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    /* 7 days don't split evenly, so the last row is centered. */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 18px;
 }
 
 .day-plan {
+    flex: 1 1 140px;
     background: var(--white);
     border-left: 5px solid var(--pink);
     padding: 20px;
@@ -428,7 +424,7 @@ body {
 
 /* ========== CTA SECTION ========== */
 .cta-section {
-    padding: 80px 20px;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--pink-4) 0%, var(--blue-4) 100%);
 }
 
@@ -492,6 +488,30 @@ body {
     background: var(--blue-5);
 }
 
+/* ========== EVEN ROWS ON BIG SCREENS ========== */
+/* 4 nutrition cards and 4 exercises per group: one row of 4 on big screens,
+   2 × 2 on medium screens. 6 tips and 6 meals: 2 rows of 3. */
+@media (min-width: 1100px) {
+    .nutrition-grid,
+    .exercises-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1099px) {
+    .nutrition-grid,
+    .exercises-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 769px) {
+    .prevention-cards,
+    .meal-timeline {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
     .hero-box {
@@ -521,7 +541,7 @@ body {
     .nutrition-section,
     .exercises-section,
     .cta-section {
-        padding: 50px 20px;
+        padding: 50px 0;
     }
 
     .prevention-section h2,

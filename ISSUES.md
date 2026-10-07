@@ -23,7 +23,7 @@ Audit of all `src/**/*.css` (2026-10-03). Fix in two passes:
 
 ## #2 [refactor] Kid-simple JS + cart, booking and working forms
 
-Status: done (2026-10-06), waiting for commit. Note: the Online page had no doctor name (the lookup never ran), so "Dr. Ahmed El-Shaer" is now written in its HTML.
+Status: closed (2026-10-07). Note: the Online page had no doctor name (the lookup never ran), so "Dr. Ahmed El-Shaer" is now written in its HTML.
 
 Make every script readable top to bottom by a 12-year-old: one `.js` file per page, plain functions and loops, no `innerHTML` with user text.
 
@@ -35,3 +35,11 @@ Make every script readable top to bottom by a 12-year-old: one `.js` file per pa
 - Login, Signup, Contact: real forms with empty-field and email checks and a demo "thanks" message.
 - Root `index.html` redirects to `src/Home/home.html`.
 - README with a Limits section; CLAUDE.md and AGENTS.md rewritten with the kid-simple rules.
+
+## #3 [bug] Desktop layout: header on one row, no wasted side space
+
+Status: closed (2026-10-07)
+
+- Header wrapped its 7 links onto two uneven rows even at 1920px. Now one row from 1201px up, links on their own row at ≤1200px, centred on phones. Buttons read "Sign Up" / "Log In" everywhere.
+- Pages capped content at 860–1200px (five different caps) and the header at 1320px, leaving 38–79% of a 1920px screen empty and the logo out of line with the content. Now one `--page-width` (1440px) and `--page-gutter` in `tokens.css` with a shared `.container`, used by header, footer and every page.
+- Card grids re-balanced so rows come out even (Home 5 per row, Equipment 7, Doctors 5, Pave Your Well 4 or 3 and the 7-day plan in one row); doctor groups centre a short last row.

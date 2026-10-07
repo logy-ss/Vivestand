@@ -76,13 +76,6 @@ body {
     color: var(--navy);
 }
 
-/* CONTAINER */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
-}
-
 /* HERO SECTION */
 .hero-section {
     min-height: 70vh;
@@ -92,7 +85,7 @@ body {
 
 /* INJURY SELECTION SECTION */
 .injury-section {
-    padding: 80px 20px;
+    padding: 80px 0;
     background: var(--white);
 }
 
@@ -114,6 +107,13 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 20px;
+}
+
+/* 20 injuries: 4 even rows of 5 on big screens. */
+@media (min-width: 1000px) {
+    .injury-cards {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
 .injury-card {
@@ -149,7 +149,7 @@ body {
 
 /* FEATURES SECTION */
 .features-section {
-    padding: 80px 20px;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--blue-5), var(--white));
 }
 
@@ -200,7 +200,7 @@ body {
 
 /* HOW IT WORKS SECTION */
 .how-it-works-section {
-    padding: 80px 20px;
+    padding: 80px 0;
     background: var(--white);
 }
 

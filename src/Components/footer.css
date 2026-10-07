@@ -2,14 +2,8 @@
 footer {
     background: linear-gradient(90deg, var(--navy), var(--blue-1));
     color: var(--white);
-    padding: 60px 20px 30px;
+    padding: 60px 0 30px;
     margin-top: 80px;
-}
-
-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
 }
 
 .footer-content {

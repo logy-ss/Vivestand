@@ -32,7 +32,7 @@ header .active-link {
 .sports-section,
 .products-section,
 .footer-container {
-	width: min(1200px, calc(100% - 48px));
+	width: min(calc(var(--page-width) - 2 * var(--page-gutter)), calc(100% - 2 * var(--page-gutter)));
 	margin: 0 auto;
 }
 
@@ -215,6 +215,13 @@ header .active-link {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 14px;
+}
+
+/* 14 sports: 2 even rows of 7 on big screens. */
+@media (min-width: 1150px) {
+	.sport-grid {
+		grid-template-columns: repeat(7, 1fr);
+	}
 }
 
 .sport-card {

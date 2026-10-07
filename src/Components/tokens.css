@@ -13,6 +13,19 @@
     --white: #F9FCFF;
     --text: #102235;
     --font-body: 'Delius', sans-serif;
+
+    /* How wide pages get on big screens, and the empty space kept at the
+       left and right edges. Header, content and footer all use these, so
+       their edges line up. */
+    --page-width: 1440px;
+    --page-gutter: 32px;
+}
+
+/* Phones have less room, so the edge space is smaller. */
+@media (max-width: 640px) {
+    :root {
+        --page-gutter: 16px;
+    }
 }
 
 body {
@@ -24,4 +37,15 @@ input,
 textarea,
 select {
     font: inherit;
+}
+
+/* The box that holds a page's content. Every page uses this same width. */
+.container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--page-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
 }
