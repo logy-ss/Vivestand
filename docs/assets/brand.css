@@ -1,0 +1,46 @@
+/* Vivestand brand: colours and fonts shared by the poster, slides, diagrams and documentation.
+   Colours come from images/logo.png (navy "Vive", pink "stand", blue splashes) and src/Components/tokens.css.
+   Diagrams also use these hex values directly in SVG attributes, so replace the same hex strings
+   in docs/diagrams/*.html when you change them:
+   #0B1F3A ink · #E72C55 accent · #C41E47 accent-dark · #066CBD warm (logo blue) · #4AA8D8 warm-2 · #9DD9F5 sky · #F4F9FD paper */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Baloo+Bhaijaan+2:wght@500;600;700;800&display=swap');
+
+:root {
+  --ink: #0B1F3A;        /* the app's --navy, close to the logo's "Vive" navy #043365 */
+  --ink-2: #123E6B;
+  --ink-soft: #3A4F66;
+  --accent: #E72C55;     /* the logo's pink "stand" */
+  --accent-dark: #C41E47;
+  --warm: #066CBD;       /* the logo's blue figure and splashes */
+  --warm-2: #4AA8D8;
+  --sky: #9DD9F5;        /* the logo's light-blue drops */
+  --paper: #F4F9FD;      /* the logo's off-white background, a touch of blue */
+  --white: #FFFFFF;
+  --line: rgba(11, 31, 58, 0.14);
+  --todo-bg: #FFF1A8;    /* student placeholder highlight */
+  --todo-line: #D9A400;
+
+  --script: 'Pacifico', cursive;                       /* the wordmark: brush script like the logo */
+  --display: 'Baloo 2', 'Nunito', sans-serif;          /* headings and big numbers: round and heavy like the logo letters */
+  --sans: 'Nunito', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --arabic: 'Baloo Bhaijaan 2', sans-serif;
+}
+
+.ar { font-family: var(--arabic); direction: rtl; unicode-bidi: isolate; }
+
+/* Student placeholder: anything in this style still has to be written before printing. */
+.todo {
+  background: var(--todo-bg);
+  color: #4A3B00;
+  border: 0.18em dashed var(--todo-line);
+  border-radius: 0.35em;
+  padding: 0.12em 0.4em;
+  font-family: var(--sans);
+  font-style: normal;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.todo::before { content: "✏️ Student writes: "; font-weight: 800; }
+.todo.block { display: block; padding: 0.5em 0.7em; }
+

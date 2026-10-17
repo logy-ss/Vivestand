@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vivestand Slides</title>
+<!-- 9 slides, 1280 x 720 each. Build the PDF with: python docs/build.py slides -->
+<!-- Text starting with ✏️ is for the student to write: replace the pen and the words after it with your own. -->
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #555; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; font-family: var(--sans); color: var(--ink); }
+  .slide { position: relative; width: 1280px; height: 720px; overflow: hidden; padding: 56px 72px; break-after: page;
+           background: var(--paper);
+           background-image: linear-gradient(rgba(11,31,58,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(11,31,58,0.035) 1px, transparent 1px);
+           background-size: 32px 32px; }
+  .slide.dark { background: var(--ink); color: var(--paper); }
+  .slide.hot { background: linear-gradient(120deg, var(--warm), var(--ink-2)); color: #fff; }
+
+  .kicker { font: 700 15px var(--mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
+  .dark .kicker { color: var(--sky); }
+  .hot .kicker { color: var(--sky); }
+  .kicker .ar { letter-spacing: 0; margin-left: 10px; font-size: 17px; }
+  h2 { font-family: var(--display); font-size: 50px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 34px; }
+  h2 .todo { font-size: 26px; font-weight: 500; letter-spacing: 0; }
+  .foot { position: absolute; left: 72px; right: 72px; bottom: 30px; display: flex; justify-content: space-between;
+          font: 500 13px var(--mono); color: var(--ink-soft); }
+  .dark .foot { color: rgba(244,249,253,0.6); }
+  .hot .foot { color: rgba(244,249,253,0.75); }
+  .foot b { font-family: var(--display); font-weight: 800; }
+
+  .texture { position: absolute; inset: 0; padding: 20px 30px; display: flex; flex-wrap: wrap; align-content: flex-start;
+             justify-content: space-between; column-gap: 26px; color: var(--sky); opacity: 0.07; }
+  .texture span { font-size: 56px; line-height: 1.45; }
+  .texture .en { font-family: var(--display); font-weight: 800; }
+  .texture .ar { font-family: var(--arabic); font-weight: 700; }
+  .glow { position: absolute; width: 560px; height: 560px; border-radius: 50%;
+          background: radial-gradient(circle, rgba(231,44,85,0.38) 0%, rgba(6,108,189,0.20) 52%, rgba(6,108,189,0) 72%); }
+  .tile { position: absolute; background: var(--paper); border-radius: 72px; padding: 22px; box-shadow: 0 0 0 7px rgba(231,44,85,0.45); }
+  .tile img { display: block; width: 100%; height: 100%; }
+
+  .title-text { position: absolute; left: 72px; top: 150px; width: 640px; }
+  .wordmark { font-family: var(--script); font-weight: 400; font-size: 112px; line-height: 1.3; margin: 0 0 14px -4px; color: var(--paper); white-space: nowrap; }
+  .wordmark .dot { color: var(--accent); }
+  .tagline { margin-bottom: 18px; font: 800 38px/1.15 var(--display); color: var(--accent); }
+  .promise { font-size: 21px; line-height: 1.5; color: rgba(244,249,253,0.9); max-width: 600px; }
+  .todo { font-size: 20px; line-height: 1.5; }
+
+  .cards { display: grid; gap: 22px; }
+  .cards.three { grid-template-columns: repeat(3, 1fr); }
+  .cards.four { grid-template-columns: 1fr 1fr; }
+  .card { background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 26px 28px; min-height: 200px; }
+  .cards.three .card { min-height: 330px; }
+  .dark .card { background: var(--ink-2); border-color: rgba(244,249,253,0.12); }
+  .card h3 { font-family: var(--display); font-size: 25px; font-weight: 700; margin-bottom: 10px; }
+  .card p { font-size: 18px; line-height: 1.45; color: var(--ink-soft); }
+  .dark .card p { color: rgba(244,249,253,0.75); }
+  .card .num { font: 700 15px var(--mono); color: var(--accent-dark); margin-bottom: 12px; display: block; }
+
+  .steps { display: flex; align-items: center; gap: 22px; margin-top: 10px; }
+  .step { flex: 1; background: var(--paper); color: var(--ink); border-radius: 14px; padding: 26px 26px 30px; min-height: 210px; }
+  .step .n { font: 800 60px var(--display); color: var(--accent); line-height: 1; }
+  .step h3 { font-family: var(--display); font-size: 29px; margin: 14px 0 8px; }
+  .step p { font-size: 18px; line-height: 1.45; color: var(--ink-soft); }
+  .also { margin-top: 44px; font-size: 21px; line-height: 1.5; max-width: 1000px; color: rgba(244,249,253,0.9); }
+  .also b { color: var(--sky); }
+  .steps .arrow { font: 700 40px var(--mono); color: #fff; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .shot { border: 1.5px solid rgba(11,31,58,0.25); border-radius: 10px; overflow: hidden; background: #fff; }
+  .shot img { display: block; width: 100%; height: 330px; object-fit: cover; object-position: 30% top; }
+  .cap { font-size: 16px; color: var(--ink-soft); margin-top: 12px; line-height: 1.4; }
+  .dark .cap { color: rgba(244,249,253,0.75); }
+
+  .demo-big { display: grid; grid-template-columns: 380px 1fr; gap: 40px; align-items: start; }
+  .demo-big .shot img { height: 520px; object-position: 25% top; }
+  .points { list-style: none; display: grid; gap: 18px; margin-top: 8px; }
+  .points li { display: flex; gap: 14px; font-size: 19px; line-height: 1.4; }
+  .points li::before { content: ""; flex: none; width: 12px; height: 12px; margin-top: 8px; background: var(--accent); border-radius: 50%; }
+  .points b { display: block; font-family: var(--display); font-size: 22px; }
+  .points span { color: rgba(244,249,253,0.75); }
+
+  .diagram { background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 14px; }
+  .diagram img { display: block; width: 100%; }
+
+  .built { display: grid; grid-template-columns: 740px 1fr; gap: 40px; align-items: start; }
+  .stats { display: grid; gap: 20px; }
+  .stat { display: flex; gap: 18px; align-items: baseline; border-top: 2px solid var(--ink); padding-top: 10px; }
+  .stat b { font: 800 50px var(--display); color: var(--accent); min-width: 96px; }
+  .stat span { font-size: 17px; color: var(--ink-soft); line-height: 1.35; }
+  .under { font-size: 17px; color: var(--ink-soft); margin-top: 20px; }
+
+  .name-text { position: absolute; left: 560px; top: 150px; width: 620px; }
+  .name-text h2 { margin-bottom: 22px; }
+  .name-text .todo.block { font-size: 19px; }
+
+  .thanks { position: absolute; left: 72px; top: 110px; width: 700px; }
+  .thanks h1 { font-family: var(--display); font-size: 96px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 26px; }
+  .thanks .line { margin-bottom: 10px; }
+  .qrrow { display: flex; gap: 24px; align-items: center; margin-top: 36px; }
+  .qrrow .code { background: #fff; padding: 10px; }
+  .qrrow img { display: block; width: 150px; height: 150px; image-rendering: pixelated; }
+  .qrrow p { font: 500 17px/1.6 var(--mono); }
+  .qrrow b { color: var(--sky); }
+  .disclaimer { margin-top: 30px; font: 500 15px var(--mono); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- 1 · Title -->
+<section class="slide dark">
+  <div class="texture">
+    <span class="en">INJURY</span><span class="ar">إصابة</span><span class="en">RECOVER</span><span class="ar">تعافي</span><span class="en">DOCTOR</span><span class="ar">دكتور</span><span class="en">KNEE</span><span class="ar">ركبة</span><span class="en">SPORT</span><span class="ar">رياضة</span><span class="en">GEAR</span><span class="ar">معدات</span><span class="en">ATHLETE</span><span class="ar">رياضي</span><span class="en">HEAL</span><span class="ar">شفاء</span><span class="en">TRAIN</span><span class="ar">تمرين</span>
+  </div>
+  <div class="glow" style="right: 20px; top: 70px;"></div>
+  <div class="tile" style="left: 830px; top: 170px; width: 360px; height: 360px;"><img src="../assets/mark.svg" alt="Vivestand mark"></div>
+  <div class="title-text">
+    <div class="kicker">Sports recovery · Egypt</div>
+    <div class="wordmark">Vive<span class="dot">stand</span></div>
+    <div class="tagline">✏️ Your way back to sport.</div>
+    <div class="promise">✏️ Pick your injury and get a recovery plan, find a sports doctor, try a free 10-minute online session, and shop second-hand gear for your sport.</div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Aswan Projects Showcase 2026</span><span>1</span></div>
+</section>
+
+<!-- 2 · The problem -->
+<section class="slide">
+  <div class="kicker">01 · The problem <span class="ar">المشكلة</span></div>
+  <h2>✏️ Getting hurt is easy. Getting back is confusing.</h2>
+  <div class="cards three">
+    <div class="card"><h3>✏️ What's wrong with me?</h3><p>✏️ Athletes don't know the symptoms, how serious an injury is, or how many weeks it takes to heal.</p></div>
+    <div class="card"><h3>✏️ Which doctor?</h3><p>✏️ It is hard to find a sports doctor for your exact injury, and a first visit costs time and money.</p></div>
+    <div class="card"><h3>✏️ Gear costs too much</h3><p>✏️ New braces, boots and recovery gear are expensive, while good used gear sits unused at home.</p></div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>2</span></div>
+</section>
+
+<!-- 3 · Who it's for -->
+<section class="slide dark">
+  <div class="kicker">Who it's for <span class="ar">لمن هذا التطبيق</span></div>
+  <h2>✏️ Built for everyone on the way back to sport.</h2>
+  <div class="cards four">
+    <div class="card"><span class="num">01</span><h3>✏️ Injured athletes</h3><p>✏️ A clear recovery plan and the right doctor.</p></div>
+    <div class="card"><span class="num">02</span><h3>✏️ Sports fans and gym-goers</h3><p>✏️ Tips to avoid injuries, eat well and train smart.</p></div>
+    <div class="card"><span class="num">03</span><h3>✏️ Sports doctors and physios</h3><p>✏️ Patients who already know their injury and want a session.</p></div>
+    <div class="card"><span class="num">04</span><h3>✏️ Merchants and retired athletes</h3><p>✏️ A place to sell gear to athletes who need it.</p></div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>3</span></div>
+</section>
+
+<!-- 4 · Our solution -->
+<section class="slide hot">
+  <div class="kicker">Our solution <span class="ar">الحل</span></div>
+  <h2>Pick. Learn. Get help.</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Pick</h3><p>Your injury from 20 cards on Home: shoulder, knee, ankle, ACL…</p></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">2</div><h3>Learn</h3><p>Its symptoms, a recovery plan in 4 stages, and 5 tips so it doesn't happen again.</p></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">3</div><h3>Get help</h3><p>A sports doctor, a free 10-minute online session, or second-hand gear for your sport.</p></div>
+  </div>
+  <p class="also"><b>Also on the site:</b> Pave Your Well (a daily meal plan, exercises and a 7-day training program) and Recovery (a return-to-training plan in Arabic and English, with 4-week plans for 6 sports).</p>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>4</span></div>
+</section>
+
+<!-- 5 · Demo: find your injury -->
+<section class="slide">
+  <div class="kicker">02 · Demo <span class="ar">عرض</span></div>
+  <h2>Find your injury, read your plan.</h2>
+  <div class="pair">
+    <div><div class="shot"><img src="../screenshots/home-injuries.jpg" alt="Home injury cards"></div><p class="cap">Home: 20 injury cards. Each one is a plain link.</p></div>
+    <div><div class="shot"><img src="../screenshots/injury-knee.jpg" alt="Knee injury page"></div><p class="cap">Injury page: symptoms, 4 recovery stages and prevention tips.</p></div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>5</span></div>
+</section>
+
+<!-- 6 · Demo: online session -->
+<section class="slide dark">
+  <div class="demo-big">
+    <div>
+      <div class="kicker">02 · Demo <span class="ar">عرض</span></div>
+      <h2>A free first session.</h2>
+      <ul class="points">
+        <li><div><b>Answer 3 questions</b><span>What hurts, for how long, and what you want.</span></div></li>
+        <li><div><b>10 minutes with a doctor</b><span>A timer counts down from 10:00.</span></div></li>
+        <li><div><b>See the price</b><span>Next sessions are 300 EGP, 30 minutes each.</span></div></li>
+        <li><div><b>Book the next one</b><span>Pick a date and time. Past times are refused.</span></div></li>
+      </ul>
+    </div>
+    <div class="shot"><img src="../screenshots/online-timer.jpg" alt="Online session timer"></div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>6</span></div>
+</section>
+
+<!-- 7 · Demo: doctors and gear -->
+<section class="slide">
+  <div class="kicker">02 · Demo <span class="ar">عرض</span></div>
+  <h2>Find a doctor. Gear up.</h2>
+  <div class="pair">
+    <div><div class="shot"><img src="../screenshots/doctors-knee-chat.jpg" alt="Knee doctors with chat"></div><p class="cap">Doctors: 61 specialists in 6 groups, a filter, and a 💬 chat.</p></div>
+    <div><div class="shot"><img src="../screenshots/equipment-football.jpg" alt="Football equipment"></div><p class="cap">Equipment: 18 listings per sport, from merchants and retired athletes.</p></div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>7</span></div>
+</section>
+
+<!-- 8 · How it works -->
+<section class="slide">
+  <div class="kicker">03 · How it works <span class="ar">كيف يعمل</span></div>
+  <h2 style="margin-bottom: 20px;">Plain links, one page at a time.</h2>
+  <div class="built" style="grid-template-columns: 740px 1fr;">
+    <div class="diagram"><img src="../diagrams/flow.png" alt="User flow diagram"></div>
+    <div class="stats">
+      <div class="stat"><b>4</b><span>steps on the Online page, shown one at a time</span></div>
+      <div class="stat"><b>600</b><span>seconds in the free session (10 × 60)</span></div>
+      <div class="stat"><b>1</b><span>injury page shows all 20 injuries: the address picks which one</span></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>8</span></div>
+</section>
+
+<!-- 9 · Thank you -->
+<section class="slide dark">
+  <div class="glow" style="right: 20px; top: 70px;"></div>
+  <div class="tile" style="left: 860px; top: 190px; width: 320px; height: 320px;"><img src="../assets/mark.svg" alt="Vivestand mark"></div>
+  <div class="thanks">
+    <h1>Thank you.</h1>
+    <div class="line">Logien Mohamed · Team Vivestand · Techno Future Academy, KFS</div>
+    <div class="line">Aswan Projects Showcase 2026 · ✏️ your email</div>
+    <div class="qrrow">
+      <div class="code"><img src="../assets/qr-app.svg" alt="QR code for logy-ss.github.io/Vivestand"></div>
+      <p>Scan to try the live app:<br><b>logy-ss.github.io/Vivestand</b></p>
+    </div>
+  </div>
+  <div class="foot"><span><b>Vivestand</b> · Sports injury recovery</span><span>9</span></div>
+</section>
+
+</body>
+</html>

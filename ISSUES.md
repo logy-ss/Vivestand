@@ -43,3 +43,17 @@ Status: closed (2026-10-07)
 - Header wrapped its 7 links onto two uneven rows even at 1920px. Now one row from 1201px up, links on their own row at ≤1200px, centred on phones. Buttons read "Sign Up" / "Log In" everywhere.
 - Pages capped content at 860–1200px (five different caps) and the header at 1320px, leaving 38–79% of a 1920px screen empty and the logo out of line with the content. Now one `--page-width` (1440px) and `--page-gutter` in `tokens.css` with a shared `.container`, used by header, footer and every page.
 - Card grids re-balanced so rows come out even (Home 5 per row, Equipment 7, Doctors 5, Pave Your Well 4 or 3 and the 7-day plan in one row); doctor groups centre a short last row.
+
+## #4 [docs] Showcase kit: documentation, poster, slides
+
+Status: closed (2026-10-17)
+
+- `docs/` holds the Aswan Projects Showcase 2026 kit: `vivestand-documentation.md` + PDF, a 1000×2000 mm poster, a 9-slide deck, the user-flow and page-parts diagrams, and 19 screenshots of the real site.
+- Every number is checked against the code (20 injuries, 61 doctors, 14 sports, 252 listings, 11 pages).
+- Lines starting with ✏️ are for Logien to write or rewrite. `python docs/build.py` rebuilds the PDFs and counts the ✏️ lines left (needs `playwright` and `markdown-it-py`, not app dependencies).
+
+## #5 [bug] "Back to Exercises" link is broken on Pave Your Well
+
+Status: open
+
+- `src/Professional/pave_your_well.html` line 464 links to `pave%20your%20well.html#exercises-section`, a file that doesn't exist. It should be `pave_your_well.html#exercises-section`.

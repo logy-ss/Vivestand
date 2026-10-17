@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- The Vivestand symbol from images/logo.png, redrawn as shapes: a person jumping up with one arm raised,
+       blue splashes around them, and the pink swoosh from under the word "stand". -->
+  <!-- light-blue drops -->
+  <path d="M30,96 C18,84 22,66 36,64 C46,63 52,74 52,86 C52,100 56,112 60,120 C50,114 38,106 30,96 Z" fill="#9DD9F5"/>
+  <path d="M162,70 C172,66 182,74 180,86 C178,98 168,104 160,110 C164,98 166,86 158,78 Z" fill="#9DD9F5"/>
+  <!-- blue drops -->
+  <path d="M40,62 C32,50 38,36 52,36 C64,37 68,50 66,62 C65,72 64,80 62,88 C56,78 48,70 40,62 Z" fill="#066CBD"/>
+  <path d="M150,128 C158,116 172,116 176,126 C180,136 170,144 156,146 C150,147 146,147 142,148 C146,142 148,134 150,128 Z" fill="#066CBD"/>
+  <!-- the jumping person: head, then a body that sweeps up into a raised arm -->
+  <circle cx="98" cy="46" r="17" fill="#066CBD"/>
+  <path d="M46,98 C60,80 80,74 98,78 C116,82 132,74 146,58 C156,46 162,32 166,16 C175,40 168,66 150,90 C134,112 116,134 104,162 C100,138 92,118 80,106 C70,100 58,98 46,98 Z" fill="#066CBD"/>
+  <!-- pink and blue swooshes underneath -->
+  <path d="M26,176 C70,150 128,140 176,146 C184,147 186,154 180,157 C136,156 86,166 40,186 C30,190 20,184 26,176 Z" fill="#E72C55"/>
+  <path d="M54,192 C90,180 132,174 168,176 C150,182 104,188 70,198 C62,200 54,198 54,192 Z" fill="#043365"/>
+  <!-- sparkles -->
+  <path d="M132,26 L135,36 L145,39 L135,42 L132,52 L129,42 L119,39 L129,36 Z" fill="#9DD9F5"/>
+  <path d="M28,128 L30,135 L37,137 L30,139 L28,146 L26,139 L19,137 L26,135 Z" fill="#066CBD"/>
+  <path d="M176,160 L178,166 L184,168 L178,170 L176,176 L174,170 L168,168 L174,166 Z" fill="#E72C55"/>
+</svg>

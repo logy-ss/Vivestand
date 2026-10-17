@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vivestand Page Parts</title>
+<!-- Which shared files from src/Components/ each page loads, taken from the <link> and <script> tags in src/*/*.html.
+     The .canvas size is the PNG size. Rebuild with: python docs/build.py diagrams -->
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  html, body { margin: 0; background: var(--white); }
+  .canvas { width: 1600px; height: 772px; box-sizing: border-box; padding: 30px; display: grid; grid-template-columns: 560px 1fr; gap: 30px;
+            font-family: var(--sans); color: var(--ink); }
+  .panel { background: #F1F8FD; border: 2px solid rgba(11,31,58,0.10); border-radius: 18px; padding: 26px 28px; }
+  .lane { font: 700 14px var(--mono); letter-spacing: 0.16em; color: var(--ink-soft); margin-bottom: 18px; }
+  .file { background: #fff; border: 2.5px solid var(--ink); border-radius: 12px; padding: 14px 18px; margin-bottom: 14px; }
+  .file code { font: 700 18px var(--mono); color: var(--accent-dark); }
+  .file p { font-size: 17px; line-height: 1.35; margin: 6px 0 0; color: var(--ink-soft); }
+  .file.blue { border-color: var(--warm); }
+  .file.blue code { color: var(--warm); }
+  .note { font: 500 15px/1.45 var(--mono); color: var(--ink-soft); margin-top: 6px; }
+  table { align-self: start; width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border: 2.5px solid var(--ink); border-radius: 12px; overflow: hidden; }
+  th { background: var(--ink); color: #fff; font: 700 15px var(--mono); letter-spacing: 0.06em; padding: 14px 10px; text-align: center; }
+  th:first-child, td:first-child { text-align: left; padding-left: 20px; }
+  td { font-size: 19px; padding: 0 10px; height: 54px; text-align: center; border-top: 1px solid rgba(11,31,58,0.08); }
+  td:first-child { font-weight: 700; }
+  td:first-child small { display: block; font: 500 13px var(--mono); color: var(--ink-soft); font-weight: 500; }
+  td.yes { color: var(--warm); font-weight: 800; font-size: 24px; }
+  td.no { color: rgba(11,31,58,0.25); }
+  td.js { font: 600 15px var(--mono); color: var(--accent-dark); }
+  tr.sec td { background: #F7FAFD; font: 700 13px var(--mono); letter-spacing: 0.14em; color: var(--ink-soft); height: 34px; text-align: left; padding-left: 20px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="panel">
+    <div class="lane">SRC/COMPONENTS/ · WRITTEN ONCE, SHARED</div>
+    <div class="file"><code>tokens.css</code><p>Colours (navy, 5 blues, 4 pinks), the Delius font and the 1440px page width. Loaded first on every page.</p></div>
+    <div class="file"><code>header.css · footer.css</code><p>The top bar and bottom bar. Their HTML is copied into each page.</p></div>
+    <div class="file blue"><code>cart-count.js</code><p>loadCart(), saveCart(), showCartCount(): keeps "🛒 Cart (3)" right on every page.</p></div>
+    <div class="file blue"><code>chat.css · chat.js</code><p>The 💬 chat. It answers with 1 of 5 ready-made lines after half a second.</p></div>
+    <p class="note">Every page is one folder: page.html + page.css,<br>plus page.js when something happens on a click.</p>
+  </div>
+  <table>
+    <tr><th>Page</th><th>Own .js</th><th>Header + 🛒</th><th>Footer</th><th>💬 Chat</th></tr>
+    <tr class="sec"><td colspan="5">READ AND FIND HELP</td></tr>
+    <tr><td>Home<small>Home/home.html</small></td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+    <tr><td>Injury<small>Injuries/injuries.html</small></td><td class="js">injuries.js</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+    <tr><td>Doctors<small>Doctors/doctors.html</small></td><td class="js">doctors.js</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+    <tr><td>Online<small>Online_session/online.html</small></td><td class="js">online.js</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+    <tr><td>Pave Your Well<small>Professional/pave_your_well.html</small></td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+    <tr><td>Recovery (Arabic + English)<small>Recovery/recovery.html</small></td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+    <tr class="sec"><td colspan="5">SHOP</td></tr>
+    <tr><td>Equipment<small>Equepment/equepment.html</small></td><td class="js">equepment.js</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+    <tr><td>Cart<small>Cart/cart.html</small></td><td class="js">cart.js</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+    <tr class="sec"><td colspan="5">FORMS</td></tr>
+    <tr><td>Contact Us<small>contact_us/contact_us.html</small></td><td class="js">contact_us.js</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
+    <tr><td>Log In · Sign Up<small>Login/ · Signup/</small></td><td class="js">login.js · signup.js</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+  </table>
+</div>
+</body>
+</html>
