@@ -17,11 +17,13 @@ body {
     min-height: 70vh;
     display: grid;
     place-items: center;
-    padding: 40px 20px;
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 40px var(--page-gutter);
 }
 
 .login {
-    width: min(100%, 460px);
+    width: 100%;
     background: rgba(255,255,255,0.92);
     border: 1px solid rgba(18, 62, 107, 0.12);
     border-radius: 22px;

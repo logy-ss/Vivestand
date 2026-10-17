@@ -13,14 +13,10 @@ body {
 	color: var(--text);
 }
 
-.container {
-	max-width: 980px;
-	margin: 0 auto;
-	padding: 20px;
-}
 
 .recovery-main {
-	padding: 24px 20px;
+	padding-top: 24px;
+	padding-bottom: 24px;
 }
 
 .intro h1 {

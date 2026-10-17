@@ -8,12 +8,6 @@ body {
     background: linear-gradient(180deg, var(--blue-5) 0%, var(--white) 100%);
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 .cart-page {
     padding-top: 40px;
     padding-bottom: 20px;
@@ -108,7 +102,6 @@ body {
 .delivery-form {
     display: flex;
     flex-direction: column;
-    max-width: 480px;
     padding: 28px;
     border-radius: 16px;
     background: var(--white);
