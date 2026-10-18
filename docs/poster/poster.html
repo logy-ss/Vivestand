@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Vivestand Poster</title>
 <!-- Printed size: 1000 x 2000 mm, plus 5 mm extra on each edge for trimming. Build the PDF with: python docs/build.py poster -->
-<!-- Text starting with  is for the student to write: replace the pen and the words after it with your own. -->
 <link rel="stylesheet" href="../assets/brand.css">
 <style>
   @page { size: 1010mm 2010mm; margin: 0; }
@@ -91,9 +90,23 @@
   .qr img { display: block; width: 120mm; height: 120mm; image-rendering: pixelated; }
   .qr p { font-family: var(--mono); font-size: 8.5mm; color: var(--ink-soft); margin-top: 4mm; line-height: 1.4; }
   .qr p b { color: var(--ink); }
+
+  /* AFFIAT band: the forum and academy logos across the top. The poster below is shrunk a little to make room. */
+  .affiat-page { position: relative; width: 1010mm; height: 2010mm; overflow: hidden; background: #FFFFFF; }
+  .affiat-band { position: absolute; left: 0; top: 0; width: 1010mm; height: 110mm; background: #FFFFFF;
+                 display: flex; align-items: center; justify-content: center; gap: 22mm; border-bottom: 1.2mm solid #E3E6EA; }
+  .affiat-band img { display: block; height: 86mm; width: auto; }
+  .affiat-band .affiat-text { font-family: 'Space Grotesk', Arial, sans-serif; color: #1B2A4A; line-height: 1.15; }
+  .affiat-band .affiat-text b { display: block; font-size: 20mm; font-weight: 700; letter-spacing: 0.01em; }
+  .affiat-band .affiat-text span { display: block; font-size: 15mm; margin-top: 3mm; color: #3A4A66; }
+  .affiat-body { position: absolute; left: 0; top: 110mm; width: 1010mm; height: 1900mm; }
+  .affiat-body > .poster { transform: scale(0.94527); transform-origin: top center; }
 </style>
 </head>
 <body>
+<div class="affiat-page">
+<div class="affiat-band"><img src="../assets/partners.png" alt="AFFIAT and Techno Future Kafr El Sheikh"><div class="affiat-text"><b>Afro-Asian Forum for Innovation and Technology</b><span>AFFIAT · Aswan Finals 2026</span></div></div>
+<div class="affiat-body">
 <div class="poster">
 
   <div class="hero">
@@ -105,8 +118,8 @@
     <div class="text">
       <div class="kicker">Sports recovery · Egypt</div>
       <h1>Vive<span class="dot">stand</span></h1>
-      <div class="tagline"> Your way back to sport.</div>
-      <p class="promise"> Pick your injury and get a recovery plan, find a sports doctor, try a free 10-minute online session, and shop second-hand gear for your sport.</p>
+      <div class="tagline">Your way back to sport.</div>
+      <p class="promise">Pick your injury and get a recovery plan, find a sports doctor, try a free 10-minute online session, and shop second-hand gear for your sport.</p>
     </div>
   </div>
   <div class="band"><svg viewBox="0 0 1010 40" preserveAspectRatio="none">
@@ -121,12 +134,12 @@
       <div class="two">
         <div class="card">
           <div class="label">The problem <span class="ar">المشكلة</span></div>
-          <h3> Hurt, and lost about recovery</h3>
-          <p> Athletes who get injured often don't know how serious it is, how long it takes to heal, or which doctor to see. Advice is spread across coaches, clinics and random websites, and new recovery gear is expensive.</p>
+          <h3>Hurt, and lost about recovery</h3>
+          <p>Athletes who get injured often don't know how serious it is, how long it takes to heal, or which doctor to see. Advice is spread across coaches, clinics and random websites, and new recovery gear is expensive.</p>
         </div>
         <div class="card hot">
           <div class="label">Our solution <span class="ar">الحل</span></div>
-          <h3> One place to recover</h3>
+          <h3>One place to recover</h3>
           <p>Vivestand puts a recovery plan for 20 injuries, 61 Egyptian sports doctors, a free first online session and second-hand gear on one website.</p>
         </div>
       </div>
@@ -177,7 +190,7 @@
       <div class="label">Built with</div>
       <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
       <div class="who">Logien Mohamed · Team Vivestand · Techno Future Academy, KFS</div>
-      <div class="meta">Aswan Projects Showcase 2026 ·  your email</div>
+      <div class="meta">AFFIAT · Afro-Asian Forum for Innovation and Technology · Aswan Finals 2026</div>
     </div>
     <div class="qr">
       <div class="code"><img src="../assets/qr-app.svg" alt="QR code for logy-ss.github.io/Vivestand"></div>
@@ -185,6 +198,8 @@
     </div>
   </div>
 
+</div>
+</div>
 </div>
 </body>
 </html>

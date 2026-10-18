@@ -1,6 +1,8 @@
 # Vivestand: Sports Injury Recovery Platform
 
-Project documentation for the Aswan Projects Showcase 2026 · Logien Mohamed · Team Vivestand · Techno Future Academy, KFS
+Project documentation for the Afro-Asian Forum for Innovation and Technology (AFFIAT), Aswan Finals 2026 · Logien Mohamed · Team Vivestand · Techno Future Academy, KFS
+
+<p align="center"><img src="assets/partners.png" alt="AFFIAT and Techno Future Kafr El Sheikh" width="320"></p>
 
 <p align="center"><img src="assets/logo.png" alt="Vivestand logo" width="300"></p>
 
@@ -12,8 +14,8 @@ Project documentation for the Aswan Projects Showcase 2026 · Logien Mohamed · 
 |-------|-------|
 | **Project Title** | Vivestand: Sports Injury Recovery Platform |
 | **Project Type** | Static website (front-end demo, no server) |
-| **Description** | ✏️ Vivestand is a website for athletes who got hurt. Pick your injury and get a recovery plan, find a sports doctor, try a free 10-minute online session, and shop second-hand gear for your sport. |
-| **Target Users** | ✏️ Injured athletes, sports fans and gym-goers, sports doctors and physios, and people selling used sports gear. |
+| **Description** | Vivestand is a website for athletes who got hurt. Pick your injury and get a recovery plan, find a sports doctor, try a free 10-minute online session, and shop second-hand gear for your sport. |
+| **Target Users** | Injured athletes, sports fans and gym-goers, sports doctors and physios, and people selling used sports gear. |
 | **Live site** | <https://logy-ss.github.io/Vivestand/> |
 | **Code** | <https://github.com/logy-ss/Vivestand> |
 
@@ -28,15 +30,15 @@ Project documentation for the Aswan Projects Showcase 2026 · Logien Mohamed · 
 
 ## 2. Problem Statement | المشكلة
 
-✏️ Athletes who get injured often don't know how serious the injury is, how long it takes to heal, or which doctor to see. Good recovery gear is also expensive. Vivestand gives them one place for a recovery plan, a doctor and gear.
+Athletes who get injured often don't know how serious the injury is, how long it takes to heal, or which doctor to see. Good recovery gear is also expensive. Vivestand gives them one place for a recovery plan, a doctor and gear.
 
 ### Why does it matter? | لماذا هذا مهم؟
 
-✏️ Without a clear plan, athletes go back to training too early and get hurt again, or they stop playing. A small injury can turn into a long one.
+Without a clear plan, athletes go back to training too early and get hurt again, or they stop playing. A small injury can turn into a long one.
 
 ### How is it currently solved? | كيف تُحل المشكلة حاليًا؟
 
-✏️ Most athletes ask a coach or a friend, search online, or wait for a clinic appointment. The advice is mixed, doctors are hard to compare, and there is no single place for plans, doctors and gear.
+Most athletes ask a coach or a friend, search online, or wait for a clinic appointment. The advice is mixed, doctors are hard to compare, and there is no single place for plans, doctors and gear.
 
 ## 3. Technical Architecture | البنية التقنية
 
@@ -199,8 +201,8 @@ Try the site: <https://logy-ss.github.io/Vivestand/>
 
 ### Target Audience | الجمهور المستهدف
 
-- **Primary:** ✏️ Injured athletes aged 18–45 in Egypt, starting with the 14 sports in the shop.
-- **Secondary:** ✏️ Sports fans, gym members and coaches who want to prevent injuries, plus doctors, physios and sellers of used gear.
+- **Primary:** Injured athletes aged 18–45 in Egypt, starting with the 14 sports in the shop.
+- **Secondary:** Sports fans, gym members and coaches who want to prevent injuries, plus doctors, physios and sellers of used gear.
 
 
 ## 8. Student Worksheet | ورقة عمل الطالب
@@ -214,18 +216,18 @@ Try the site: <https://logy-ss.github.io/Vivestand/>
 
 ### What is your project about? | عن ماذا يتحدث مشروعك؟
 
-✏️ 1–2 sentences in your own words
+Vivestand is a website for athletes who got hurt. You pick your injury and read how to recover, find a sports doctor, try a free 10-minute online session, and shop for second-hand sports gear.
 
 ### What problem does it solve? | ما المشكلة التي يحلها؟
 
-✏️ 1–2 sentences in your own words
+Injured athletes often don't know how serious their injury is, how long it takes to heal, or which doctor to see. Vivestand puts the recovery plan, the doctors and the gear in one place.
 
 ### What I Learned | ماذا تعلمت
 
-1. **The hardest part:** ✏️ your answer
-2. **The most fun part:** ✏️ your answer
-3. **If I had more time:** ✏️ your answer
-4. **One thing I would do differently:** ✏️ your answer
+1. **The hardest part:** writing a clear week-by-week recovery plan for every injury, and making one Injuries page show the right one from the link, like `injuries.html?injury=knee`.
+2. **The most fun part:** building the online session: three questions, then a 10-minute timer, then the prices.
+3. **If I had more time:** I would add real bookings and payments for the doctors, and let sellers post their own used gear.
+4. **One thing I would do differently:** plan the shared header, footer and colours in `src/Components/` from the first day, so every page looks the same without copying.
 ---
 
-Logien Mohamed · Team Vivestand · Techno Future Academy, KFS · Aswan Projects Showcase 2026
+Logien Mohamed · Team Vivestand · Techno Future Academy, KFS · AFFIAT · Afro-Asian Forum for Innovation and Technology · Aswan Finals 2026
